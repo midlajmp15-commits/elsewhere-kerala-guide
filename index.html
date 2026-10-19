@@ -103,8 +103,8 @@
     .save-button:hover { transform: scale(1.07); }
     .save-button.saved { color: #b65349; }
     .save-button.saved svg { fill: currentColor; }
-    .card-info { flex: 1; display: flex; flex-direction: column; padding: 15px 15px 12px; border: 1px solid var(--line); border-top: 0; border-radius: 0 0 12px 12px; background: #fff; }
-    .card-location-line { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .card-info { min-width: 0; flex: 1; display: flex; flex-direction: column; padding: 15px 15px 12px; border: 1px solid var(--line); border-top: 0; border-radius: 0 0 12px 12px; background: #fff; }
+    .card-location-line { min-width: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 10px; }
     .card-location { margin: 0; font: 700 14px var(--display); letter-spacing: -.3px; }
     .card-rating { display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 700; }
     .card-rating svg { color: #c89d4c; }
@@ -113,7 +113,7 @@
     .card-price strong { color: var(--ink); font-size: 12px; }
     .card-price span { color: #8b928c; }
     .card-actions { display: flex; flex-direction: column; align-items: stretch; gap: 4px; margin-top: auto; padding-top: 9px; border-top: 1px solid var(--line); }
-    .card-category { color: #768078; font-size: 10px; }
+    .card-category { min-width: 0; color: #768078; font-size: 10px; overflow-wrap: anywhere; }
     .explore-button { min-height: 44px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 0; border: 0; background: transparent; color: var(--green); font-size: 11px; font-weight: 700; cursor: pointer; }
     .explore-button:hover { color: var(--green-dark); }
     .card-action-links { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2px 8px; }

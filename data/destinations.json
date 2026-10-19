@@ -283,6 +283,168 @@
     "searchTerms": ["periyar", "periyar tiger reserve", "tiger reserve", "elephants", "spice", "cardamom", "pepper", "forest", "boat", "wildlife", "appam", "puttu"]
   },
   {
+    "slug": "varkala",
+    "name": "Varkala",
+    "region": "Thiruvananthapuram",
+    "categories": ["coast", "culture"],
+    "label": "Clifftop coast",
+    "tag": "Where cliffs meet the sea",
+    "summary": "A dramatic coastal edge, a long beach and a laid-back cliffside promenade.",
+    "description": "Varkala pairs a striking cliffside setting with a beach town atmosphere. Take your time along the clifftop path, visit the shore with care, and leave room for local food and a slower evening. Sea conditions and access can change, so follow local safety advice rather than assuming the water is safe for swimming.",
+    "bestTime": "Heat, monsoon weather and sea conditions vary. Check the local forecast, beach safety notices and current access before setting out.",
+    "highlights": [
+      "Walk the clifftop promenade and look out over the Arabian Sea from designated public areas.",
+      "Visit Varkala Beach below the cliff, following signs and advice from local lifeguards.",
+      "Explore the town's food and café scene; ask about locally prepared Kerala dishes.",
+      "If visiting a temple or other place of worship, check visitor access and observe local customs."
+    ],
+    "guideSections": [
+      {
+        "title": "A coastal day in Varkala",
+        "intro": "The cliff and beach make a memorable setting, but the coast is a natural environment. Stay behind barriers and follow current local guidance.",
+        "items": [
+          "Start with a relaxed walk along the public cliff path, keeping away from unstable edges and any closed or restricted sections.",
+          "Go down to the beach only by an open, designated access route. Check the sea state and follow lifeguard instructions.",
+          "Pause for lunch or tea at a local café and ask about Kerala dishes made with seasonal ingredients.",
+          "Visit nearby places of worship respectfully; confirm opening times and visitor rules before travelling.",
+          "Leave the shore clean, respect residents and workers, and do not assume swimming is safe even when the sea looks calm."
+        ]
+      },
+      {
+        "title": "Cliffside cafés & Kerala flavours",
+        "intro": "Menus and availability vary by season and business. Look for local cooking as well as familiar café options.",
+        "items": [
+          "Try a Kerala breakfast such as appam or puttu where available.",
+          "Ask restaurants about freshly prepared fish or vegetarian Kerala meals.",
+          "Take a break from the heat with water, fruit or tea, and choose shaded seating during the hotter part of the day.",
+          "Tell the kitchen about allergies or dietary needs and ask how a dish is prepared."
+        ]
+      }
+    ],
+    "localTip": "Varkala's cliff edge is not a place to take risks for a photograph. Keep to signed paths, heed barriers and beach-safety instructions, and check current sea conditions before going down to the shore.",
+    "sources": [
+      {
+        "label": "Kerala Tourism — Varkala Beach",
+        "url": "https://www.keralatourism.org/destination/varkala-beach/"
+      },
+      {
+        "label": "Thiruvananthapuram District — tourism information",
+        "url": "https://trivandrum.nic.in/en/tourism/"
+      }
+    ],
+    "image": "",
+    "imageAlt": "",
+    "searchTerms": ["varkala cliff", "varkala beach", "cliff", "arabian sea", "coast", "clifftop", "temple", "beach walk", "kerala food", "swimming safety"]
+  },
+  {
+    "slug": "kovalam",
+    "name": "Kovalam",
+    "region": "Thiruvananthapuram",
+    "categories": ["coast"],
+    "label": "Beach & lighthouse",
+    "tag": "A southern shoreline",
+    "summary": "A much-loved beach destination known for a chain of coves and a landmark lighthouse.",
+    "description": "Kovalam is a popular beach destination on Kerala's southern coast. Its neighbouring beach coves and lighthouse make an easy seaside escape, with time for a shoreline walk and a meal nearby. Check current beach access and sea conditions, and follow local lifeguard advice.",
+    "bestTime": "Weather and sea conditions vary through the year. Check local advisories and the forecast before planning beach time.",
+    "highlights": [
+      "Explore the adjoining beaches and coves at a relaxed pace, checking which areas are open.",
+      "See the lighthouse area from approved visitor spaces and confirm current entry arrangements before visiting.",
+      "Take a coastal walk and enjoy a meal at a local restaurant.",
+      "Follow lifeguard guidance and local signs; do not assume the sea is safe for swimming."
+    ],
+    "guideSections": [
+      {
+        "title": "A day by the sea",
+        "intro": "Kovalam's shoreline is best enjoyed without rushing. Access, weather and surf conditions can change, so check locally on the day.",
+        "items": [
+          "Choose an open beach area and note the safety flags and instructions before settling in.",
+          "Visit the lighthouse only if it is open to visitors; check current hours, entry rules and any closures first.",
+          "Walk between nearby coves using public paths and respect fishing or other working areas.",
+          "Take a break for a local Kerala meal or fresh seasonal produce.",
+          "Avoid entering the water unless local authorities say conditions are safe; follow lifeguard instructions at all times."
+        ]
+      },
+      {
+        "title": "A taste of the coast",
+        "intro": "Kovalam has a range of places to eat. Ask what is fresh and local, and check ingredients before ordering.",
+        "items": [
+          "Look for Kerala staples such as appam, puttu or a rice meal with regional curries.",
+          "Ask whether fresh fish is available and how the kitchen prepares it.",
+          "Choose a shaded place to rest and keep drinking water with you in the heat.",
+          "If you have dietary needs, explain them clearly and confirm how food is prepared."
+        ]
+      }
+    ],
+    "localTip": "The sea can be hazardous even when it looks calm. Respect flags, barriers and lifeguard instructions, and check both beach access and lighthouse opening information with local authorities before travelling.",
+    "sources": [
+      {
+        "label": "Thiruvananthapuram District — Kovalam Beach",
+        "url": "https://trivandrum.nic.in/en/tourist-place/kovalam-beach/"
+      },
+      {
+        "label": "Kerala Tourism — Kovalam Beach",
+        "url": "https://www.keralatourism.org/destination/kovalam-beach/"
+      }
+    ],
+    "image": "",
+    "imageAlt": "",
+    "searchTerms": ["kovalam lighthouse", "kovalam beach", "lighthouse beach", "lighthouse", "coves", "beach", "arabian sea", "coast", "swimming safety", "kerala food", "thiruvananthapuram"]
+  },
+  {
+    "slug": "athirappilly",
+    "name": "Athirappilly",
+    "region": "Thrissur",
+    "categories": ["nature", "wildlife", "hills"],
+    "label": "Waterfall country",
+    "tag": "The river in motion",
+    "summary": "A celebrated waterfall and forest landscape in the Chalakudy River region.",
+    "description": "Athirappilly is known for its waterfall and forested river landscape in Thrissur district. Enjoy the views from permitted areas, allow time for the walk, and check local weather, site access and safety notices before travelling. Water levels and conditions can change quickly, especially during heavy rain.",
+    "bestTime": "Rainfall can affect waterfall conditions, paths and access. Check official site notices and local weather before setting out.",
+    "highlights": [
+      "Visit the waterfall only when the site is open and follow the marked visitor route.",
+      "Take time to enjoy the surrounding forest and river scenery from designated viewpoints.",
+      "Plan for walking on uneven or slippery surfaces and wear suitable footwear.",
+      "Check local access and weather updates before travelling; closures may be in place for safety."
+    ],
+    "guideSections": [
+      {
+        "title": "A day at the waterfall",
+        "intro": "This is a natural site, not a managed swimming pool. Water flow, trail conditions and access may change with weather.",
+        "items": [
+          "Check official notices and local weather before you leave, then follow the site's entry and route guidance.",
+          "Use marked paths and approved viewpoints; do not cross barriers or approach the river edge for photos.",
+          "Wear footwear suitable for wet or uneven ground, and allow enough time for the walk at a comfortable pace.",
+          "Keep food wrappers and other waste with you until you reach a proper bin.",
+          "Avoid entering the river or pools; currents and changing water levels can be dangerous."
+        ]
+      },
+      {
+        "title": "Local food & a thoughtful visit",
+        "intro": "Food and facilities around the route may be limited or change with operating conditions. Plan a flexible stop.",
+        "items": [
+          "Carry drinking water and a small snack, and take all packaging back with you.",
+          "Look for a local meal in an open restaurant nearby; confirm opening times before relying on a particular stop.",
+          "Respect forest and wildlife rules, keep noise low and never feed wild animals.",
+          "If travelling with others, agree on a meeting point and follow the site team's instructions."
+        ]
+      }
+    ],
+    "localTip": "Check official access notices and weather on the day. Paths and rocks can be slippery, and river conditions can change rapidly; stay behind barriers and never enter the water.",
+    "sources": [
+      {
+        "label": "Kerala Tourism — Athirappilly Waterfalls",
+        "url": "https://www.keralatourism.org/destination/athirappilly-waterfalls/"
+      },
+      {
+        "label": "Thrissur District — tourist places",
+        "url": "https://thrissur.nic.in/en/tourist-places/"
+      }
+    ],
+    "image": "",
+    "imageAlt": "",
+    "searchTerms": ["athirappilly waterfalls", "athirappilly falls", "chalakudy river", "waterfall", "forest", "river", "thrissur", "nature", "wildlife", "water safety"]
+  },
+  {
     "slug": "kozhikode",
     "name": "Kozhikode",
     "region": "Kozhikode",

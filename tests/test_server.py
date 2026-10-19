@@ -18,10 +18,13 @@ class DestinationCatalogTests(unittest.TestCase):
     def setUpClass(cls):
         cls.destinations = load_destinations()
 
-    def test_catalog_contains_six_kerala_destinations(self):
+    def test_catalog_contains_nine_kerala_destinations(self):
         self.assertEqual(
             {place["slug"] for place in self.destinations},
-            {"fort-kochi", "munnar", "alappuzha", "wayanad", "thekkady", "kozhikode"},
+            {
+                "fort-kochi", "munnar", "alappuzha", "wayanad", "thekkady",
+                "kozhikode", "varkala", "kovalam", "athirappilly",
+            },
         )
 
     def test_search_matches_destination_names_without_case_sensitivity(self):
@@ -36,7 +39,7 @@ class DestinationCatalogTests(unittest.TestCase):
         results = filter_destinations(self.destinations, category="coast")
         self.assertEqual(
             {place["slug"] for place in results},
-            {"fort-kochi", "alappuzha", "kozhikode"},
+            {"fort-kochi", "alappuzha", "kozhikode", "varkala", "kovalam"},
         )
 
     def test_unknown_search_returns_no_results(self):
@@ -275,6 +278,60 @@ class DestinationCatalogTests(unittest.TestCase):
     def test_search_matches_thekkady_guide_content(self):
         results = filter_destinations(self.destinations, "cardamom")
         self.assertEqual([place["slug"] for place in results], ["thekkady"])
+
+    def test_varkala_has_a_clifftop_and_coastal_safety_guide(self):
+        varkala = next(place for place in self.destinations if place["slug"] == "varkala")
+        guide_text = " ".join(
+            item
+            for section in varkala["guideSections"]
+            for item in section["items"]
+        ).casefold()
+        self.assertIn("cliff path", guide_text)
+        self.assertIn("lifeguard", guide_text)
+        self.assertIn("appam", guide_text)
+        self.assertTrue(varkala["sources"])
+        self.assertTrue(all(source["url"].startswith("https://") for source in varkala["sources"]))
+        self.assertEqual(varkala["image"], "")
+
+    def test_search_matches_varkala_destination(self):
+        results = filter_destinations(self.destinations, "varkala cliff")
+        self.assertEqual([place["slug"] for place in results], ["varkala"])
+
+    def test_kovalam_has_a_beach_and_lighthouse_guide(self):
+        kovalam = next(place for place in self.destinations if place["slug"] == "kovalam")
+        guide_text = " ".join(
+            item
+            for section in kovalam["guideSections"]
+            for item in section["items"]
+        ).casefold()
+        self.assertIn("lighthouse", guide_text)
+        self.assertIn("lifeguard", guide_text)
+        self.assertIn("appam", guide_text)
+        self.assertTrue(kovalam["sources"])
+        self.assertTrue(all(source["url"].startswith("https://") for source in kovalam["sources"]))
+        self.assertEqual(kovalam["image"], "")
+
+    def test_search_matches_kovalam_destination(self):
+        results = filter_destinations(self.destinations, "kovalam lighthouse")
+        self.assertEqual([place["slug"] for place in results], ["kovalam"])
+
+    def test_athirappilly_has_a_waterfall_and_river_safety_guide(self):
+        athirappilly = next(place for place in self.destinations if place["slug"] == "athirappilly")
+        guide_text = " ".join(
+            item
+            for section in athirappilly["guideSections"]
+            for item in section["items"]
+        ).casefold()
+        self.assertIn("approved viewpoints", guide_text)
+        self.assertIn("avoid entering the river", guide_text)
+        self.assertIn("thrissur district", athirappilly["description"].casefold())
+        self.assertTrue(athirappilly["sources"])
+        self.assertTrue(all(source["url"].startswith("https://") for source in athirappilly["sources"]))
+        self.assertEqual(athirappilly["image"], "")
+
+    def test_search_matches_athirappilly_destination(self):
+        results = filter_destinations(self.destinations, "athirappilly waterfalls")
+        self.assertEqual([place["slug"] for place in results], ["athirappilly"])
 
 
 if __name__ == "__main__":

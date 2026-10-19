@@ -26,7 +26,7 @@ The included `render.yaml` configures a Render web service that installs Waitres
 - `GET /api/destinations?category=coast` — filter by category.
 - `GET /api/destinations/munnar` — one destination's details.
 
-Edit `data/destinations.json` to update place descriptions and image paths. All six destinations include detailed place and food guides, local tips and official reference links; `guideSections`, `localTip` and `sources` are optional fields when adding detail to another place. Search also covers guide content. The supplied photos are connected as follows:
+Edit `data/destinations.json` to update place descriptions and image paths. All nine destinations include detailed place and food guides, local tips and official reference links; `guideSections`, `localTip` and `sources` are optional fields when adding detail to another place. Varkala, Kovalam and Athirappilly use the built-in photo placeholder until appropriately licensed photos are added. Search also covers guide content. The supplied photos are connected as follows:
 
 - `images/kochin.jpg` — Fort Kochi
 - `images/munnar.jpg` — Munnar
