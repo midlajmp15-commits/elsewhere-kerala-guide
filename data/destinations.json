@@ -1,0 +1,345 @@
+[
+  {
+    "slug": "fort-kochi",
+    "name": "Fort Kochi",
+    "region": "Ernakulam",
+    "categories": ["coast", "culture"],
+    "label": "Harbour walks & heritage",
+    "tag": "The old harbour",
+    "summary": "Fishing nets at golden hour, layered history and an easy-going old harbour.",
+    "description": "Fort Kochi is a place for unhurried wandering. Follow the waterfront, notice the Portuguese, Dutch and British-era traces in its streets, and make time for the churches and neighbourhood cafés. Nearby Mattancherry adds another chapter to the story.",
+    "bestTime": "Cooler parts of the day are more comfortable for walking. Check current opening hours for churches and museums, and local notices for events or access changes.",
+    "highlights": [
+      "Walk the harbourfront to see the Chinese fishing nets; they are working fishing equipment, so give fishers room and ask before taking close-up portraits.",
+      "Visit St. Francis Church and Santa Cruz Basilica, checking service times and visitor access before you go.",
+      "Wander the old streets for cafés, galleries and buildings shaped by the area's layered history.",
+      "Cross to nearby Mattancherry for the palace and Jew Town; confirm museum opening times and any entry arrangements.",
+      "Return to the waterfront in the late afternoon for the harbour light and a sunset walk."
+    ],
+    "guideSections": [
+      {
+        "title": "A slow day in Fort Kochi",
+        "intro": "Keep the route loose: the best part of this neighbourhood is often the walk between its well-known sights.",
+        "items": [
+          "Start along the waterfront and watch the Chinese fishing nets at work. Be considerate around fishers and working areas.",
+          "Explore St. Francis Church and Santa Cruz Basilica. Both are active religious spaces, so dress respectfully and check service times.",
+          "Spend time in the historic streets: pause for a gallery, a courtyard or a coffee rather than rushing between landmarks.",
+          "Make a separate visit to nearby Mattancherry Palace and Jew Town; check current opening hours and ticket information.",
+          "End near the water as the light softens. Respect barriers and follow local sea-safety advice."
+        ]
+      },
+      {
+        "title": "A taste of the coast",
+        "intro": "Menus and availability change. Ask what is local and fresh instead of expecting every dish at every café.",
+        "items": [
+          "Try a Kerala breakfast such as appam with stew, or puttu with kadala curry, at a local restaurant.",
+          "Look for a seafood meal and ask what has come in fresh that day.",
+          "Try a cup of Kerala tea or filter coffee and a small local snack between walks.",
+          "If you have a dietary requirement, ask the kitchen about ingredients and preparation before ordering."
+        ]
+      }
+    ],
+    "localTip": "Fort Kochi and Mattancherry are best explored on foot in short stretches; carry water, take breaks in the heat, and leave extra time for ferry or road connections. Ask before photographing fishers, residents or worshippers.",
+    "sources": [
+      {
+        "label": "Ernakulam District — Fort Kochi",
+        "url": "https://ernakulam.nic.in/en/tourist-place/fort-kochi/"
+      },
+      {
+        "label": "Ernakulam District — tourist places",
+        "url": "https://ernakulam.nic.in/en/tourist-places/"
+      },
+      {
+        "label": "Kerala Tourism — Fort Kochi",
+        "url": "https://www.keralatourism.org/destination/fort-kochi/"
+      }
+    ],
+    "image": "/images/kochin.jpg",
+    "imageAlt": "Sunset over the water and fishing nets at Fort Kochi",
+    "searchTerms": ["kochi", "cochin", "harbour", "history", "art", "sunset", "waterfront", "chinese fishing nets", "st francis church", "santa cruz basilica", "mattancherry palace", "jew town", "appam", "puttu", "kadala curry", "seafood"]
+  },
+  {
+    "slug": "munnar",
+    "name": "Munnar",
+    "region": "Idukki",
+    "categories": ["hills", "nature"],
+    "label": "Tea country",
+    "tag": "Into the highlands",
+    "summary": "Rolling tea gardens, mountain air and early starts above the clouds.",
+    "description": "Munnar is a highland escape in Kerala's Western Ghats, where tea estates trace the hills and cool air invites a slower pace. Plan around the landscape, local tea and nearby protected areas, leaving room for weather and road conditions to shape the day.",
+    "bestTime": "Conditions in the high ranges vary with the season. Check current weather and park notices before setting out.",
+    "highlights": [
+      "Take in the tea-growing landscape and learn about Munnar's tea-growing history at a museum or estate that is open to visitors.",
+      "Visit Eravikulam National Park for its montane landscape and Nilgiri tahr; check current entry rules, timings and closures before travelling.",
+      "Choose a scenic stop such as Mattupetty or Top Station only after checking road and weather conditions.",
+      "Try locally grown tea and look for dishes made with ingredients from Kerala's high ranges."
+    ],
+    "guideSections": [
+      {
+        "title": "A day among the highlands",
+        "intro": "Munnar's distances and winding roads can make a short list of stops fill a day. Pick a few, check access in advance and leave time to enjoy the scenery.",
+        "items": [
+          "Start with the tea landscape: visit a tea museum or estate that currently welcomes visitors, and follow its guidance around working areas.",
+          "Set aside time for Eravikulam National Park, known for its high-altitude grasslands and Nilgiri tahr. Confirm permits, operating hours and any seasonal closures with the park before setting out.",
+          "If road and weather conditions allow, choose one outing such as Mattupetty or Top Station rather than trying to cover every viewpoint.",
+          "Pause at a local tea shop or café, and take breaks during the drive; mist and rain can affect visibility on hill roads.",
+          "For a trek, use an authorised route and guide, and check current conditions instead of relying on old trail information."
+        ]
+      },
+      {
+        "title": "Tea, spices & a hill-country table",
+        "intro": "Munnar sits in a tea- and spice-growing region. Menus and produce vary, so ask what is local and in season.",
+        "items": [
+          "Make time for a cup of tea grown in the surrounding high ranges; a tea tasting can be an easy pause between drives.",
+          "Look for Kerala staples such as appam, puttu or a rice meal, which local restaurants may serve with regional curries.",
+          "Ask about dishes featuring local spices, and check ingredients with the kitchen if you have dietary requirements.",
+          "Choose locally run cafés or shops when convenient, and buy tea or spices from sellers who can explain their origin."
+        ]
+      }
+    ],
+    "localTip": "Munnar is spread across steep, winding roads. Check park notices, weather and local road conditions on the day, allow extra travel time, and carry a light layer for changing temperatures. Keep to marked paths and do not disturb wildlife or tea workers.",
+    "sources": [
+      {
+        "label": "Idukki District — Munnar",
+        "url": "https://idukki.nic.in/en/tourist-place/munnar/"
+      },
+      {
+        "label": "Eravikulam National Park — visitor guidelines",
+        "url": "https://www.eravikulamnationalpark.in/landing/axRegister.php"
+      },
+      {
+        "label": "Kerala Tourism — Munnar",
+        "url": "https://www.keralatourism.org/destination/munnar/12"
+      }
+    ],
+    "image": "/images/munnar.jpg",
+    "imageAlt": "Green tea gardens across the hills near Munnar at sunrise",
+    "searchTerms": ["tea", "tea gardens", "plantation", "mountains", "highlands", "mist", "hiking", "eravikulam national park", "nilgiri tahr", "anamudi", "mattupetty", "top station", "spices", "appam", "puttu"]
+  },
+  {
+    "slug": "alappuzha",
+    "name": "Alappuzha",
+    "region": "Alappuzha",
+    "categories": ["backwaters", "coast"],
+    "label": "Backwater days",
+    "tag": "Slow by the water",
+    "summary": "A watery maze of palms, canals and houseboats on the Vembanad backwaters.",
+    "description": "Known to many travellers as Alleppey, Alappuzha is a waterside town and a gateway to Kerala's backwaters. Slow down for a canal-side ride, watch daily life unfold along the shore and leave room in your plans for changing water and weather conditions.",
+    "bestTime": "Water levels, heat and rainfall vary during the year. Confirm boat services and local conditions before travelling.",
+    "highlights": [
+      "See the backwaters from a public ferry or a locally operated boat; check routes, schedules and boarding points before you go.",
+      "Look out for village life, palms and paddy landscapes along the canals and waterways.",
+      "Take an evening walk by Alappuzha Beach, keeping to safe areas and following local sea-safety advice.",
+      "Try a regional Kerala meal and ask what fish or produce is fresh and locally available."
+    ],
+    "guideSections": [
+      {
+        "title": "A day by the backwaters",
+        "intro": "The waterways are part of everyday life here. Choose a short, locally appropriate trip and let the pace stay unhurried.",
+        "items": [
+          "Begin by the water and check whether a public ferry route suits your plans; confirm current routes, schedules and boarding points before you go.",
+          "For a boat trip, choose a licensed operator, confirm the route and total cost in advance, and make sure life jackets are available for everyone on board.",
+          "Watch the canalside scenery and village life respectfully; ask before photographing residents, workers or private homes.",
+          "If you have time, make a separate stop at Alappuzha Beach for a walk. Follow local signs and do not assume the sea is safe for swimming.",
+          "Keep your schedule flexible: rainfall, water levels and transport operations can affect plans."
+        ]
+      },
+      {
+        "title": "A taste of Alappuzha",
+        "intro": "The region's cooking draws on Kerala's rice and coastal food traditions. Availability and preparation vary from one kitchen to another.",
+        "items": [
+          "Look for a Kerala rice meal served with seasonal vegetable sides and local curries.",
+          "Ask whether fresh local fish is available and how it is prepared; recipes differ between restaurants.",
+          "Try appam or puttu if they are on the menu, with a curry that suits your taste.",
+          "Tell the kitchen about allergies or dietary needs, and ask about ingredients before ordering."
+        ]
+      }
+    ],
+    "localTip": "Alappuzha is hot and humid for much of the year, so carry drinking water and sun protection for time outdoors. Confirm boat services and weather locally, wear a life jacket on boat trips, and be considerate of the communities who live and work along the waterways.",
+    "sources": [
+      {
+        "label": "Alappuzha District — tourist places",
+        "url": "https://alappuzha.nic.in/en/tourist-places/"
+      },
+      {
+        "label": "Kerala Tourism — Alappuzha",
+        "url": "https://www.keralatourism.org/destination/alappuzha/6"
+      }
+    ],
+    "image": "/images/alappey.jpg",
+    "imageAlt": "Traditional houseboats among palms on the Alappuzha backwaters",
+    "searchTerms": ["alleppey", "alappey", "backwater", "canals", "houseboat", "ferry", "vembanad", "alappuzha beach", "boat", "rice", "appam", "puttu", "local fish"]
+  },
+  {
+    "slug": "wayanad",
+    "name": "Wayanad",
+    "region": "Wayanad",
+    "categories": ["nature", "wildlife", "hills"],
+    "label": "Forest & hills",
+    "tag": "Take the green road",
+    "summary": "Forest-fringed hills, winding roads and room for a little adventure.",
+    "description": "Wayanad is a green highland district of forested slopes, spice gardens and lived-in hill towns. Give yourself time between its outdoor stops, and check local access and weather before setting off.",
+    "bestTime": "Rain can affect trails and road conditions. Check local advisories and confirm access with official operators before setting out.",
+    "highlights": [
+      "Explore a permitted walking route or viewpoint with a local guide.",
+      "Visit Edakkal Caves only after checking current entry arrangements and site guidance.",
+      "Look for locally grown coffee, spices and regional Kerala dishes in town.",
+      "Choose authorised nature activities and respect wildlife, forest rules and community spaces."
+    ],
+    "guideSections": [
+      {
+        "title": "A slow route through Wayanad",
+        "intro": "Wayanad is a large, hilly district, and road journeys between stops take time. Choose a small area to explore each day and confirm access before you travel.",
+        "items": [
+          "Pick one outdoor visit for the day, such as an officially open cave, waterfall or viewpoint, and check current entry rules, opening hours and weather first.",
+          "If visiting Edakkal Caves, check the latest district or site notices for access, tickets and any physical requirements before making the drive.",
+          "For forest walks, wildlife areas and trekking routes, follow protected-area rules and use authorised guides or operators.",
+          "Allow time to enjoy the scenery from safe, permitted places; avoid stopping on narrow roads or entering farms and private land.",
+          "Rain can change trail, waterfall and road conditions quickly. Follow local advisories and be ready to change plans."
+        ]
+      },
+      {
+        "title": "Coffee, spices & local flavours",
+        "intro": "Wayanad's farms and kitchens reflect its hill-country setting. Ask what is grown or prepared locally, as menus and availability vary.",
+        "items": [
+          "Try locally grown coffee, and look for shops that can tell you where their beans were sourced.",
+          "Ask about regional dishes made with local spices and seasonal produce.",
+          "Look for Kerala favourites such as puttu or appam where available, and ask which curries are freshly prepared.",
+          "Check ingredients with the kitchen if you have allergies or dietary needs."
+        ]
+      }
+    ],
+    "localTip": "Distances can look short on a map but hill roads take time. Check district notices and weather on the day, carry water and a light rain layer, and follow access signs. Keep wildlife wild: do not feed animals, leave litter or enter restricted forest areas.",
+    "sources": [
+      {
+        "label": "Wayanad District — tourist places",
+        "url": "https://wayanad.nic.in/en/tourist-places/"
+      },
+      {
+        "label": "Wayanad District — Edakkal Caves",
+        "url": "https://wayanad.gov.in/en/tourist-place/edakkal-caves/"
+      },
+      {
+        "label": "Kerala Tourism — Wayanad",
+        "url": "https://www.keralatourism.org/destination/wayanad/"
+      }
+    ],
+    "image": "/images/wayanad.jpg",
+    "imageAlt": "A winding mountain road crossing the green hills of Wayanad",
+    "searchTerms": ["forest", "green", "road trip", "hiking", "caves", "waterfalls", "wildlife", "edakkal caves", "coffee", "spices", "puttu", "appam", "trekking"]
+  },
+  {
+    "slug": "thekkady",
+    "name": "Thekkady",
+    "region": "Idukki",
+    "categories": ["wildlife", "nature", "hills"],
+    "label": "Wild Kerala",
+    "tag": "Into the forest",
+    "summary": "Forest trails, spice-growing country and a gateway to Periyar.",
+    "description": "Thekkady is a highland gateway to the forests and waters of the Periyar landscape. Plan around authorised nature activities, a visit to a local spice garden and the slower rhythm of the hills; wildlife sightings are never guaranteed.",
+    "bestTime": "Park activities and access can change with weather and local rules. Check official Periyar visitor updates before travelling.",
+    "highlights": [
+      "Check the official Periyar Tiger Reserve site for current activities, booking arrangements and visitor rules.",
+      "Choose an authorised guided walk or other activity suited to current conditions; wildlife sightings are never guaranteed.",
+      "Visit a locally operated spice garden to learn how cardamom, pepper and other crops are grown.",
+      "Leave time for a relaxed meal in town and ask what is locally grown or freshly prepared."
+    ],
+    "guideSections": [
+      {
+        "title": "A mindful day in the Periyar hills",
+        "intro": "The forest is a living habitat, not a guaranteed wildlife show. Plan through official channels and be ready to adapt to park rules and conditions.",
+        "items": [
+          "Before travelling, check the Periyar Tiger Reserve's official website for current visitor activities, booking information, timings and access notices.",
+          "Choose only activities authorised by the reserve and follow instructions from guides and staff throughout your visit.",
+          "Keep a respectful distance from wildlife, stay on permitted routes, and never feed or try to attract animals.",
+          "Wildlife sightings are never guaranteed; treat them as a bonus, and value the forest experience even when animals stay out of view.",
+          "Allow time for a locally operated spice garden visit, confirming opening hours and any visitor arrangements in advance."
+        ]
+      },
+      {
+        "title": "Spice-country flavours",
+        "intro": "Thekkady is surrounded by spice-growing country. Ask local growers and restaurants what is in season and how ingredients are used.",
+        "items": [
+          "At a spice garden, learn about crops such as cardamom and pepper from the people who grow or work with them.",
+          "Look for Kerala meals with local spices and seasonal vegetables, and ask what is freshly prepared.",
+          "Try appam or puttu with a curry if available, or ask for a regional vegetarian option.",
+          "If buying spices, ask about their origin and storage; check ingredients with the kitchen if you have dietary needs."
+        ]
+      }
+    ],
+    "localTip": "Confirm reserve activities and bookings directly with the official Periyar Tiger Reserve before setting out, since access and schedules can change. Carry water and rain protection, follow guide instructions, keep noise low, and take all litter back with you.",
+    "sources": [
+      {
+        "label": "Periyar Tiger Reserve — official visitor information and bookings",
+        "url": "https://www.periyartigerreserve.org/"
+      },
+      {
+        "label": "Kerala Tourism — Thekkady",
+        "url": "https://www.keralatourism.org/destination/thekkady/"
+      }
+    ],
+    "image": "/images/thekkady.jpg",
+    "imageAlt": "Elephants by the water in the green forests near Thekkady",
+    "searchTerms": ["periyar", "periyar tiger reserve", "tiger reserve", "elephants", "spice", "cardamom", "pepper", "forest", "boat", "wildlife", "appam", "puttu"]
+  },
+  {
+    "slug": "kozhikode",
+    "name": "Kozhikode",
+    "region": "Kozhikode",
+    "categories": ["coast", "culture"],
+    "label": "Malabar flavours & heritage",
+    "tag": "A taste of Malabar",
+    "summary": "A spice-trade port city with a sunset shoreline and a food culture all its own.",
+    "description": "Kozhikode—historic Calicut—is where the Arabian Sea, centuries of spice-trade history and the flavours of Malabar meet. Give yourself time to wander the old market streets, find a table for local food and catch the changing light by the shore.",
+    "bestTime": "For beach walks and outdoor plans, check the local forecast and seasonal weather advisories. Confirm current opening times, access and transport locally before setting out.",
+    "highlights": [
+      "Come to Kozhikode Beach toward sunset for a lively local seafront, not just a photo stop.",
+      "Wander Mittai Theruvu (SM Street), a long-standing shopping street, and browse for Kozhikode halwa.",
+      "Make room for a Malabar meal: look for Kozhikode biryani, pathiri and seasonal local seafood.",
+      "Visit Beypore to learn about the uru, the traditional wooden dhow craft built by local shipwrights.",
+      "If you have time, add Kappad's coast or the historic Mishkal Mosque area; check access and respect local customs."
+    ],
+    "guideSections": [
+      {
+        "title": "Taste these while you're here",
+        "intro": "Kozhikode is a food destination as much as a coastal one. These are good things to look for; recipes, availability and spice levels vary between kitchens.",
+        "items": [
+          "Kozhikode biryani — fragrant, layered rice and a celebrated local take on the dish.",
+          "Kozhikode halwa — jewel-toned sweets sold by the piece in and around Mittai Theruvu (SM Street).",
+          "Pathiri with a Malabar curry — soft rice flatbread paired with a meat, fish or vegetable curry.",
+          "Unnakkaya or chattipathiri — ask a local bakery or restaurant which homemade Malabar snacks are fresh that day.",
+          "Malabar seafood — choose a busy local restaurant and ask what is in season."
+        ]
+      },
+      {
+        "title": "Make time for these places",
+        "intro": "Pick a couple that fit your pace rather than trying to cover the whole district in one day.",
+        "items": [
+          "Kozhikode Beach — an easy place for an evening stroll and to watch the sunset over the Arabian Sea. Follow local sea-safety advice; do not assume it is safe to swim.",
+          "Mittai Theruvu (SM Street) — browse the busy shopping lane, sample halwa and take in the city's everyday rhythm.",
+          "Beypore — see the harbour town associated with uru, traditional wooden sailing vessels built by skilled local craftsmen. Arrange a visit respectfully and check which workshops welcome visitors.",
+          "Mishkal Mosque — a landmark of Kozhikode's layered history. Check visitor access in advance and respect prayer times and local customs.",
+          "Kappad Beach — a coastal excursion outside the city; check current transport and local conditions before making the trip."
+        ]
+      }
+    ],
+    "localTip": "Go to SM Street hungry, buy halwa from a busy established shop, and ask before photographing people or craft workers. For Beypore workshops and places of worship, check access ahead instead of assuming visitors can enter.",
+    "sources": [
+      {
+        "label": "Kozhikode District — official tourism information",
+        "url": "https://kozhikode.nic.in/en/tourism/"
+      },
+      {
+        "label": "Kerala Tourism — Kozhikode Beach",
+        "url": "https://www.keralatourism.org/destination/kozhikode-beach/42"
+      },
+      {
+        "label": "Kerala Tourism — Beypore",
+        "url": "https://www.keralatourism.org/destination/beypore/31"
+      }
+    ],
+    "image": "/images/kozhikode.jpeg",
+    "imageAlt": "Sunset over the Arabian Sea at Kozhikode Beach",
+    "searchTerms": ["calicut", "beach", "food", "malabar", "market", "street", "coast", "biryani", "halwa", "beypore", "uru", "boat building", "sm street", "mittai theruvu", "pathiri", "seafood", "mishkal", "kappad"]
+  }
+]

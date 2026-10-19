@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f7f3">
+  <meta name="description" content="Discover Kerala with Elsewhere: find local inspiration for Fort Kochi, Munnar, Alappuzha, Wayanad, Thekkady and Kozhikode.">
+  <title>Elsewhere — Discover Kerala</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17251e;
+      --muted: #768078;
+      --green: #315c45;
+      --green-dark: #244734;
+      --paper: #f7f7f3;
+      --white: #fff;
+      --line: #e8e9e2;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", sans-serif;
+      --display: "Manrope", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 3px solid #98620b; outline-offset: 3px; }
+    .skip-link { position: absolute; z-index: 20; top: 8px; left: 8px; padding: 12px 16px; transform: translateY(-160%); border-radius: 7px; background: #fff; color: var(--ink); font-size: 13px; font-weight: 700; box-shadow: 0 4px 16px #17251e33; }
+    .skip-link:focus { transform: translateY(0); }
+    .shell { width: min(1320px, calc(100% - 80px)); margin: 0 auto; }
+
+    .topbar { height: 82px; display: flex; align-items: center; border-bottom: 1px solid rgba(23,37,30,.08); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font: 800 22px var(--display); letter-spacing: -1.3px; }
+    .brand-mark { width: 30px; height: 30px; display: grid; place-items: center; color: #fff; background: var(--green); border-radius: 50% 50% 50% 12%; transform: rotate(-35deg); }
+    .brand-mark svg { transform: rotate(35deg); }
+    .nav-links { display: flex; align-items: center; gap: 36px; margin-left: auto; margin-right: 20px; color: #545e57; font-size: 13px; font-weight: 600; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--green); }
+    .nav-actions { display: flex; align-items: center; gap: 13px; }
+    .saved-link { min-height: 44px; display: inline-flex; gap: 8px; align-items: center; padding: 10px 12px; font-size: 13px; font-weight: 600; }
+    .saved-count { min-width: 19px; height: 19px; display: grid; place-items: center; padding: 0 5px; border-radius: 20px; background: #e8ede7; color: var(--green); font-size: 10px; }
+    .sign-in { border: 0; border-radius: 99px; background: var(--green); padding: 12px 20px; color: white; font-size: 12px; font-weight: 700; cursor: pointer; transition: background .2s, transform .2s; }
+    .sign-in:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .menu-toggle { width: 44px; height: 44px; display: none; place-items: center; border: 0; background: transparent; padding: 8px; cursor: pointer; }
+
+    .hero { position: relative; min-height: 516px; display: flex; align-items: center; overflow: hidden; margin-top: 26px; border-radius: 19px; background: #566b5d url("images/kochin.jpg") center 54% / cover; color: #fff; }
+    .hero::before { position: absolute; inset: 0; content: ""; background: linear-gradient(90deg, rgba(12,28,20,.74) 0%, rgba(14,30,23,.47) 43%, rgba(14,30,23,.03) 100%), linear-gradient(0deg, rgba(14,30,23,.2), transparent 60%); }
+    .hero-content { position: relative; z-index: 1; width: min(660px, 100%); padding: 56px 0 62px 7.1%; }
+    .eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 21px; color: rgba(255,255,255,.88); font-size: 10px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; }
+    .eyebrow-dot { width: 7px; height: 7px; border-radius: 50%; background: #d7c987; }
+    .hero h1 { max-width: 590px; margin: 0; font: 500 clamp(44px, 6.2vw, 75px)/1.04 var(--display); letter-spacing: -4.8px; }
+    .hero h1 em { font-family: var(--serif); font-weight: 400; }
+    .hero-copy { max-width: 400px; margin: 20px 0 27px; color: rgba(255,255,255,.83); font-size: 14px; line-height: 1.8; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 11px; border: 0; border-radius: 99px; padding: 13px 18px; background: #fff; color: var(--ink); font-size: 12px; font-weight: 700; cursor: pointer; transition: gap .2s; }
+    .hero-cta:hover { gap: 17px; }
+    .hero-cta svg { color: var(--green); }
+    .hero-note { position: absolute; z-index: 1; right: 28px; bottom: 83px; display: flex; align-items: center; gap: 9px; color: rgba(255,255,255,.9); font-size: 10px; }
+    .avatar-stack { display: flex; padding-left: 6px; }
+    .avatar-stack img { width: 24px; height: 24px; margin-left: -6px; border: 2px solid rgba(255,255,255,.85); border-radius: 50%; object-fit: cover; }
+
+    .search-wrap { position: relative; z-index: 2; width: min(960px, calc(100% - 48px)); margin: -31px auto 0; }
+    .search-panel { display: grid; grid-template-columns: 1fr auto; align-items: center; min-height: 81px; padding: 11px 12px 11px 25px; border: 1px solid rgba(23,37,30,.05); border-radius: 13px; background: #fff; box-shadow: 0 14px 45px rgba(30,45,34,.10); }
+    .search-field { min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 0 17px 0 0; }
+    .search-field:first-child { padding-left: 0; }
+    .search-label { color: #777f79; font-size: 10px; font-weight: 600; }
+    .search-field input { width: 100%; padding: 0; border: 0; outline: none; color: var(--ink); background: transparent; font-size: 12px; font-weight: 600; }
+    .search-field input:focus-visible { outline: 3px solid #98620b; outline-offset: 5px; border-radius: 2px; }
+    .search-field input::placeholder { color: #a4aaa4; font-weight: 400; }
+    .search-button { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 49px; margin-left: 13px; padding: 0 22px; border: 0; border-radius: 8px; background: var(--green); color: #fff; font-size: 12px; font-weight: 700; cursor: pointer; transition: background .2s; }
+    .search-button:hover { background: var(--green-dark); }
+
+    .main-content { padding-top: 76px; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+    .kicker { margin: 0 0 8px; color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; }
+    .section-heading h2, .editorial h2 { margin: 0; font: 600 clamp(27px, 3vw, 37px)/1.18 var(--display); letter-spacing: -1.8px; }
+    .section-heading h2 em, .editorial h2 em { font-family: var(--serif); font-weight: 400; }
+    .view-link { display: inline-flex; align-items: center; gap: 7px; padding: 9px 0; color: var(--green); font-size: 12px; font-weight: 700; white-space: nowrap; }
+    .view-link svg { transition: transform .2s; }
+    .view-link:hover svg { transform: translateX(4px); }
+
+    .filters { display: flex; align-items: center; gap: 8px; overflow-x: auto; padding: 0 0 15px; scrollbar-width: none; }
+    .filters::-webkit-scrollbar { display: none; }
+    .filter-chip { min-height: 44px; flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px; padding: 9px 14px; border: 1px solid #e6e8e1; border-radius: 99px; background: transparent; color: #5d655f; font-size: 11px; font-weight: 600; cursor: pointer; transition: all .18s; }
+    .filter-chip:hover { border-color: #bfcbbf; color: var(--green); }
+    .filter-chip.active { border-color: var(--green); background: var(--green); color: white; }
+    .filter-chip svg { width: 14px; height: 14px; }
+
+    .destination-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 20px; }
+    .destination-card { min-width: 0; display: flex; flex-direction: column; border-radius: 12px; transition: transform .2s, box-shadow .2s; }
+    .destination-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(30,45,34,.09); }
+    .destination-card[hidden] { display: none; }
+    .card-image-wrap { position: relative; aspect-ratio: 1 / 1.05; overflow: hidden; border-radius: 12px 12px 0 0; background: #e3e5de; }
+    .card-image { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+    .destination-card:hover .card-image { transform: scale(1.045); }
+    .card-tag { position: absolute; top: 13px; left: 13px; padding: 7px 10px; border-radius: 99px; background: rgba(255,255,255,.93); color: #46564a; font-size: 9px; font-weight: 700; letter-spacing: .25px; }
+    .save-button { position: absolute; top: 11px; right: 11px; width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 50%; background: rgba(255,255,255,.94); color: #39443d; cursor: pointer; transition: color .2s, transform .2s; }
+    .save-button:hover { transform: scale(1.07); }
+    .save-button.saved { color: #b65349; }
+    .save-button.saved svg { fill: currentColor; }
+    .card-info { flex: 1; display: flex; flex-direction: column; padding: 15px 15px 12px; border: 1px solid var(--line); border-top: 0; border-radius: 0 0 12px 12px; background: #fff; }
+    .card-location-line { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .card-location { margin: 0; font: 700 14px var(--display); letter-spacing: -.3px; }
+    .card-rating { display: flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 700; }
+    .card-rating svg { color: #c89d4c; }
+    .card-description { min-height: 34px; margin: 7px 0 10px; color: #69746c; font-size: 11px; line-height: 1.55; }
+    .card-meta { display: flex; align-items: center; justify-content: space-between; color: #59635c; font-size: 10px; }
+    .card-price strong { color: var(--ink); font-size: 12px; }
+    .card-price span { color: #8b928c; }
+    .card-actions { display: flex; flex-direction: column; align-items: stretch; gap: 4px; margin-top: auto; padding-top: 9px; border-top: 1px solid var(--line); }
+    .card-category { color: #768078; font-size: 10px; }
+    .explore-button { min-height: 44px; display: inline-flex; align-items: center; gap: 6px; padding: 4px 0; border: 0; background: transparent; color: var(--green); font-size: 11px; font-weight: 700; cursor: pointer; }
+    .explore-button:hover { color: var(--green-dark); }
+    .card-action-links { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2px 8px; }
+    .card-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 11px; background: linear-gradient(145deg, #e5e8df, #d1dbd0); color: #506553; }
+    .card-placeholder span { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .empty-state { display: block; grid-column: 1 / -1; padding: 45px 20px; border: 1px dashed #d7dcd3; border-radius: 12px; text-align: center; color: var(--muted); font-size: 13px; }
+    .trip-planner { margin-top: 72px; padding: 30px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .trip-planner .section-heading { align-items: center; margin-bottom: 18px; }
+    .trip-planner h2 { margin: 0; font: 600 clamp(25px, 3vw, 34px)/1.18 var(--display); letter-spacing: -1.5px; }
+    .trip-planner h2 em { font-family: var(--serif); font-weight: 400; }
+    .trip-intro { margin: 8px 0 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .trip-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+    .trip-duration { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 11px; font-weight: 600; }
+    .trip-duration select { min-height: 38px; padding: 0 10px; border: 1px solid #dfe4dc; border-radius: 7px; background: #fff; color: var(--ink); font: 700 11px var(--sans); }
+    .trip-start-date { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 11px; font-weight: 600; }
+    .trip-start-date input { min-height: 38px; max-width: 145px; padding: 0 9px; border: 1px solid #dfe4dc; border-radius: 7px; background: #fff; color: var(--ink); font: 600 11px var(--sans); }
+    .trip-calendar-hint { flex-basis: 100%; margin: 0; color: var(--muted); font-size: 10px; }
+    .trip-action, .trip-day-select, .trip-remove { border: 1px solid #dfe4dc; border-radius: 7px; background: #fff; color: var(--green); font-size: 11px; font-weight: 700; }
+    .trip-action { min-height: 38px; padding: 0 13px; cursor: pointer; }
+    .trip-action.primary { border-color: var(--green); background: var(--green); color: #fff; }
+    .trip-action:hover:not(:disabled) { border-color: var(--green-dark); }
+    .trip-action:disabled { cursor: not-allowed; opacity: .5; }
+    .trip-list { display: grid; gap: 12px; }
+    .trip-empty { padding: 28px 18px; border: 1px dashed #d7dcd3; border-radius: 10px; color: var(--muted); text-align: center; font-size: 12px; line-height: 1.7; }
+    .trip-day { display: grid; gap: 8px; }
+    .trip-day h3 { display: flex; align-items: center; gap: 10px; margin: 9px 0 2px; color: var(--green); font: 700 12px var(--display); }
+    .trip-day h3::after { height: 1px; flex: 1; content: ""; background: var(--line); }
+    .trip-day-empty { margin: 0; padding: 10px 13px; border: 1px dashed #d7dcd3; border-radius: 8px; color: var(--muted); font-size: 11px; }
+    .trip-item { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 9px; }
+    .trip-item-name { min-width: 0; flex: 1; }
+    .trip-item-name strong { display: block; font: 700 12px var(--display); }
+    .trip-item-name span { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
+    .trip-note-input { width: 100%; min-height: 54px; margin-top: 9px; padding: 8px 10px; resize: vertical; border: 1px solid #dfe4dc; border-radius: 7px; color: var(--ink); font: 11px/1.5 var(--sans); }
+    .trip-note { display: none; }
+    .trip-item-controls { display: flex; align-items: center; gap: 8px; }
+    .trip-day-select { min-height: 34px; padding: 0 8px; color: var(--ink); font-weight: 500; }
+    .trip-reorder { display: flex; gap: 4px; }
+    .trip-reorder button { width: 36px; height: 36px; border: 1px solid #dfe4dc; border-radius: 7px; background: #fff; color: var(--green); font-size: 17px; line-height: 1; cursor: pointer; }
+    .trip-reorder button:disabled { cursor: not-allowed; opacity: .4; }
+    .trip-remove { min-height: 34px; padding: 0 10px; color: #8d4d43; cursor: pointer; }
+    .trip-print-note { display: none; }
+    .place-dialog { width: min(720px, calc(100% - 32px)); max-height: min(88vh, 850px); overflow: auto; padding: 0; border: 0; border-radius: 16px; background: var(--paper); color: var(--ink); box-shadow: 0 24px 80px #101b1466; }
+    .place-dialog::backdrop { background: rgba(15, 27, 20, .58); backdrop-filter: blur(3px); }
+    .dialog-hero { position: relative; height: clamp(180px, 30vh, 270px); overflow: hidden; background: #647663; }
+    .dialog-hero img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .dialog-hero::after { position: absolute; inset: 35% 0 0; content: ""; background: linear-gradient(transparent, rgba(14, 25, 18, .42)); pointer-events: none; }
+    .dialog-close { position: absolute; z-index: 1; top: 14px; right: 14px; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.65); border-radius: 50%; background: rgba(255,255,255,.94); font-size: 21px; cursor: pointer; }
+    .dialog-content { padding: 30px; }
+    .dialog-topline { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .dialog-tag { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; }
+    .place-dialog h2 { margin: 13px 0 10px; font: 700 clamp(27px, 4vw, 36px)/1.14 var(--display); letter-spacing: -1.5px; }
+    .dialog-summary { max-width: 600px; margin: 0 0 23px; color: #657168; font-size: 13px; line-height: 1.8; }
+    .dialog-section { margin-top: 23px; }
+    .dialog-section h3, .dialog-content > h3 { margin: 0 0 9px; font: 700 15px var(--display); letter-spacing: -.25px; }
+    .dialog-section > p { margin: 0 0 12px; color: #768078; font-size: 11px; line-height: 1.7; }
+    .dialog-item-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+    .dialog-item { padding: 13px 14px; border: 1px solid var(--line); border-radius: 9px; background: white; color: #59645c; font-size: 11px; line-height: 1.7; }
+    .dialog-facts { margin-top: 20px; padding: 15px 17px; border-radius: 9px; background: #e9ede7; }
+    .dialog-facts strong { font-size: 11px; }
+    .dialog-facts p { margin: 5px 0 0; color: #657168; font-size: 12px; line-height: 1.7; }
+    .dialog-highlights { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+    .dialog-highlights li { display: flex; gap: 9px; align-items: flex-start; color: #58645a; font-size: 12px; line-height: 1.6; }
+    .dialog-highlights li::before { content: "↗"; color: var(--green); font-weight: 700; }
+    .dialog-sources { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 17px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .dialog-sources a { color: var(--green); font-size: 10px; font-weight: 600; text-decoration: underline; text-decoration-color: #aab7ab; text-underline-offset: 3px; }
+    .dialog-sources a:hover { text-decoration-color: currentColor; }
+
+    .editorial { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(32px, 7vw, 100px); margin: 104px 0 100px; padding: 0 4.5%; }
+    .editorial-image { position: relative; min-height: 325px; overflow: hidden; border-radius: 14px; background: #8d9a85 url("images/munnar.jpg") center / cover; }
+    .image-caption { position: absolute; left: 15px; bottom: 15px; padding: 9px 12px; border-radius: 8px; background: rgba(255,255,255,.93); font-size: 10px; font-weight: 600; }
+    .editorial-copy { max-width: 410px; }
+    .editorial h2 { max-width: 420px; font-size: clamp(31px, 3.8vw, 45px); line-height: 1.12; }
+    .editorial-copy > p:not(.kicker) { margin: 17px 0 22px; color: #727b73; font-size: 13px; line-height: 1.85; }
+    .editorial-stats { display: flex; gap: 35px; padding-top: 19px; border-top: 1px solid var(--line); }
+    .stat strong { display: block; font: 700 19px var(--display); letter-spacing: -.7px; }
+    .stat span { display: block; margin-top: 4px; color: #7b837d; font-size: 10px; }
+
+    footer { border-top: 1px solid var(--line); }
+    .footer-inner { min-height: 83px; display: flex; align-items: center; justify-content: space-between; gap: 18px; color: #858c86; font-size: 10px; }
+    .footer-inner .brand { color: var(--ink); font-size: 17px; }
+    .footer-links { display: flex; gap: 22px; }
+    .footer-links a:hover { color: var(--green); }
+    .toast { position: fixed; z-index: 10; right: 24px; bottom: 24px; max-width: calc(100vw - 48px); padding: 13px 18px; border-radius: 9px; background: #203b2b; color: white; box-shadow: 0 8px 30px #17251e33; font-size: 12px; opacity: 0; transform: translateY(10px); pointer-events: none; transition: opacity .2s, transform .2s; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .shell { width: min(100% - 48px, 720px); }
+      .nav-links { gap: 20px; margin-right: 3px; }
+      .hero { min-height: 460px; }
+      .destination-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
+      .card-image-wrap { aspect-ratio: 1 / 1; }
+      .editorial { gap: 32px; margin: 82px 0; padding: 0; }
+      .editorial-image { min-height: 285px; }
+      .search-panel { grid-template-columns: 1fr auto; }
+      .search-button { padding: 0 18px; }
+      .trip-planner { padding: 24px; }
+    }
+    @media (max-width: 640px) {
+      .shell { width: calc(100% - 36px); }
+      .topbar { height: 68px; }
+      .brand { font-size: 20px; }
+      .brand-mark { width: 27px; height: 27px; }
+      .nav { gap: 10px; }
+      .nav-actions { margin-left: auto; gap: 4px; }
+      .saved-link { gap: 5px; padding: 8px 6px; font-size: 11px; }
+      .sign-in { padding: 10px 13px; font-size: 11px; }
+      .nav-actions .sign-in { display: none; }
+      .nav-links { position: absolute; z-index: 5; top: 60px; right: 18px; left: 18px; display: none; align-items: stretch; flex-direction: column; gap: 0; margin: 0; padding: 8px 17px; border: 1px solid var(--line); border-radius: 12px; background: white; box-shadow: 0 12px 26px #17251e14; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 13px 0; border-bottom: 1px solid #f0f1ec; }
+      .nav-links a:last-child { border: 0; }
+      .menu-toggle { display: grid; }
+      .hero { min-height: 470px; margin-top: 15px; border-radius: 14px; background-position: 58% center; }
+      .hero::before { background: linear-gradient(90deg, rgba(12,28,20,.71), rgba(14,30,23,.19)), linear-gradient(0deg, rgba(14,30,23,.32), transparent 75%); }
+      .hero-content { padding: 40px 25px; }
+      .hero h1 { max-width: 430px; font-size: clamp(48px, 12vw, 65px); letter-spacing: -3.8px; }
+      .hero-copy { max-width: 330px; font-size: 13px; }
+      .hero-note { right: 14px; bottom: 75px; font-size: 9px; }
+      .search-wrap { width: calc(100% - 56px); margin-top: -24px; }
+      .search-panel { grid-template-columns: 1fr auto; gap: 4px; padding: 10px; }
+      .search-field { padding: 8px; }
+      .search-field:first-child { padding-left: 8px; }
+      .search-button { min-height: 43px; margin: 0; padding: 0 12px; font-size: 10px; }
+      .main-content { padding-top: 58px; }
+      .section-heading { align-items: end; gap: 12px; margin-bottom: 19px; }
+      .section-heading h2 { font-size: 29px; letter-spacing: -1.4px; }
+      .view-link { gap: 4px; font-size: 10px; }
+      .filters { margin-right: -18px; }
+      .destination-grid { gap: 22px 12px; }
+      .destination-card { border-radius: 9px; }
+      .card-image-wrap { aspect-ratio: 1 / 1; border-radius: 9px 9px 0 0; }
+      .card-tag { top: 8px; left: 8px; padding: 6px 8px; font-size: 8px; }
+      .save-button { top: 7px; right: 7px; width: 44px; height: 44px; }
+      .card-info { padding: 11px 10px 9px; border-radius: 0 0 9px 9px; }
+      .card-location { font-size: 12px; }
+      .card-rating { gap: 3px; font-size: 9px; }
+      .card-description { min-height: 45px; font-size: 10px; line-height: 1.45; }
+      .card-meta { font-size: 9px; }
+      .card-price strong { font-size: 11px; }
+      .editorial { grid-template-columns: 1fr; gap: 25px; margin: 72px 0; }
+      .editorial-image { min-height: 260px; }
+      .editorial-copy { padding: 0 2px; }
+      .trip-planner { margin-top: 54px; padding: 20px 16px; }
+      .trip-planner .section-heading { align-items: flex-start; flex-direction: column; }
+      .trip-actions { width: 100%; }
+      .trip-duration { flex: 1; justify-content: space-between; }
+      .trip-duration select { flex: 1; }
+      .trip-list { grid-template-columns: minmax(0, 1fr); }
+      .trip-day, .trip-item, .trip-item-controls, .trip-day-select { min-width: 0; }
+      .trip-item { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .trip-item-controls { width: 100%; }
+      .trip-day-select { flex: 1; }
+      .dialog-content { padding: 22px; }
+      .dialog-item-grid { grid-template-columns: 1fr; }
+      .footer-inner { min-height: 100px; flex-wrap: wrap; justify-content: space-between; padding: 20px 0; }
+      .footer-inner > span { order: 3; width: 100%; }
+      .footer-links { gap: 13px; font-size: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+    @page { margin: 16mm; }
+    @media print {
+      body { background: #fff; color: #17251e; font-family: Arial, sans-serif; }
+      .topbar, .hero, .search-wrap, #destinations, #editorial, footer, .place-dialog, .toast, .skip-link { display: none !important; }
+      .trip-planner { display: block; width: 100%; max-width: none; margin: 0; padding: 0; border: 0; border-radius: 0; background: #fff; }
+      .trip-planner .section-heading { display: block; margin: 0 0 22px; }
+      .trip-planner .kicker { margin-bottom: 6px; }
+      .trip-planner h2 { font-size: 26pt; }
+      .trip-intro { margin-top: 8px; color: #445148; font-size: 10pt; }
+      .trip-print-note { display: block; margin: 12px 0 0; color: #59645c; font-size: 9pt; line-height: 1.5; }
+      .trip-actions, .trip-item-controls, .trip-reorder { display: none !important; }
+      .trip-list { gap: 14px; }
+      .trip-day { gap: 6px; }
+      .trip-day h3 { margin: 10px 0 3px; color: #244734; font-size: 12pt; break-after: avoid; page-break-after: avoid; }
+      .trip-item { padding: 10px 12px; border-color: #cfd6ce; border-radius: 5px; break-inside: avoid; page-break-inside: avoid; }
+      .trip-item-name strong { font-size: 10pt; }
+      .trip-item-name span { color: #445148; font-size: 9pt; }
+      .trip-note-input { display: none; }
+      .trip-note:not([hidden]) { display: block; margin: 7px 0 0; color: #445148; font-size: 9pt; line-height: 1.5; white-space: pre-wrap; }
+      .trip-empty { border-color: #cfd6ce; color: #445148; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="topbar">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="#" aria-label="Elsewhere home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 17.5 10.4 6l3.1 5.3 2.1-3.5L21 17.5H4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.1 17.5 3.4-6.1 3.6 6.1" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </span>
+        elsewhere
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#destinations" aria-current="page">Discover</a>
+        <a href="#trip-planner">Plan a trip</a>
+        <a href="#editorial">The Kerala guide</a>
+      </div>
+      <div class="nav-actions">
+        <a class="saved-link" id="saved-link" href="#destinations" aria-label="Saved destinations">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.8 8.7c0 5.2-8.8 10.1-8.8 10.1S3.2 13.9 3.2 8.7A4.7 4.7 0 0 1 12 6.4a4.7 4.7 0 0 1 8.8 2.3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          Saved <span class="saved-count" id="saved-count">0</span>
+        </a>
+        <a class="sign-in" href="#destinations">Explore Kerala</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> A local-first guide to Kerala</div>
+        <h1 id="hero-title">Kerala, beyond <em>the itinerary.</em></h1>
+        <p class="hero-copy">Tea country, harbour sunsets, and backwater mornings. Find the Kerala that feels like yours.</p>
+        <a class="hero-cta" href="#destinations">Explore destinations
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="hero-note">
+        <span class="eyebrow-dot" aria-hidden="true"></span>
+        <span>Six places. One beautiful state.</span>
+      </div>
+    </section>
+
+    <div class="search-wrap">
+      <form class="search-panel" id="search-form" role="search">
+        <label class="search-field">
+          <span class="search-label">Find your kind of Kerala</span>
+          <input id="search-destination" type="search" placeholder="Try Munnar, beaches, tea gardens…" aria-label="Search Kerala destinations and experiences">
+        </label>
+        <button class="search-button" type="submit">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.4 4.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Search places
+        </button>
+      </form>
+    </div>
+
+    <section class="main-content shell" id="destinations" tabindex="-1" aria-labelledby="destinations-heading">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">Six places to begin</p>
+          <h2 id="destinations-heading">Find your kind of <em>Kerala.</em></h2>
+        </div>
+        <a class="view-link" href="#destinations" id="view-all">View all places
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="filters" role="group" aria-label="Filter destinations by experience">
+        <button class="filter-chip active" type="button" data-filter="all" aria-pressed="true">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 11.3 12 4l9 7.3v8.2a.5.5 0 0 1-.5.5h-17a.5.5 0 0 1-.5-.5v-8.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke="currentColor" stroke-width="1.6"/></svg> All places
+        </button>
+        <button class="filter-chip" type="button" data-filter="coast" aria-pressed="false">☼ &nbsp;Coast</button>
+        <button class="filter-chip" type="button" data-filter="hills" aria-pressed="false">⌁ &nbsp;Hill country</button>
+        <button class="filter-chip" type="button" data-filter="backwaters" aria-pressed="false">◌ &nbsp;Backwaters</button>
+        <button class="filter-chip" type="button" data-filter="wildlife" aria-pressed="false">✳ &nbsp;Wild escapes</button>
+        <button class="filter-chip" type="button" data-filter="culture" aria-pressed="false">⌂ &nbsp;Culture &amp; food</button>
+      </div>
+
+      <div class="destination-grid" id="destination-grid">
+        <div class="empty-state" id="empty-state" role="status" aria-live="polite">Loading Kerala destinations…</div>
+      </div>
+    </section>
+
+    <section class="trip-planner shell" id="trip-planner" tabindex="-1" aria-labelledby="trip-heading">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">Your Kerala, your pace</p>
+          <h2 id="trip-heading">Build an <em>itinerary.</em></h2>
+          <p class="trip-intro">Choose a trip length and start date, add places, and group stops by day. Your plan stays in this browser unless you share a link.</p>
+          <p class="trip-print-note">A personal travel outline. Confirm current transport, opening hours and local guidance before you travel.</p>
+        </div>
+        <div class="trip-actions">
+          <label class="trip-start-date" for="trip-start-date">
+            Start date
+            <input id="trip-start-date" type="date" aria-label="Trip start date">
+          </label>
+          <label class="trip-duration" for="trip-length">
+            Trip length
+            <select id="trip-length" aria-label="Trip length in days"></select>
+          </label>
+          <button class="trip-action" id="add-saved-to-trip" type="button">Add saved places</button>
+          <button class="trip-action" id="share-itinerary" type="button" disabled>Share itinerary</button>
+          <button class="trip-action" id="download-calendar" type="button" disabled aria-describedby="trip-calendar-hint">Add to calendar (.ics)</button>
+          <button class="trip-action primary" id="print-itinerary" type="button" disabled>Print / Save as PDF</button>
+          <p class="trip-calendar-hint" id="trip-calendar-hint" aria-live="polite" hidden>Set a start date to download calendar events.</p>
+        </div>
+      </div>
+      <div class="trip-list" id="trip-list" aria-live="polite">
+        <p class="trip-empty">Loading your itinerary…</p>
+      </div>
+    </section>
+
+    <section class="editorial shell" id="editorial" tabindex="-1" aria-labelledby="editorial-title">
+      <div class="editorial-image" role="img" aria-label="Tea plantations and green hills near Munnar, Kerala">
+        <span class="image-caption">The highlands · Munnar, Kerala</span>
+      </div>
+      <div class="editorial-copy">
+        <p class="kicker">A note from elsewhere</p>
+        <h2 id="editorial-title">One state. A hundred ways to <em>wander.</em></h2>
+        <p>From the old harbour streets of Fort Kochi to misty tea gardens and quiet backwaters, Kerala rewards the curious traveller. Start with a place that speaks to you, then leave room for the unexpected.</p>
+        <a class="view-link" href="#destinations">Find your starting point
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner shell">
+      <a class="brand" href="#" aria-label="Elsewhere home">
+        <span class="brand-mark" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 17.5 10.4 6l3.1 5.3 2.1-3.5L21 17.5H4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span> elsewhere
+      </a>
+      <span>A small, growing guide to Kerala.</span>
+      <div class="footer-links"><a href="#destinations">Explore places</a><a href="#editorial">About this guide</a></div>
+    </div>
+  </footer>
+  <dialog class="place-dialog" id="place-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-hero">
+      <img id="dialog-image" src="" alt="">
+      <button class="dialog-close" id="dialog-close" type="button" aria-label="Close destination details">×</button>
+    </div>
+    <div class="dialog-content">
+      <div class="dialog-topline">
+        <span class="dialog-tag" id="dialog-tag"></span>
+        <span class="card-category" id="dialog-region"></span>
+      </div>
+      <h2 id="dialog-title"></h2>
+      <p class="dialog-summary" id="dialog-summary"></p>
+      <div id="guide-sections"></div>
+      <div class="dialog-facts">
+        <strong>Before you go</strong>
+        <p id="dialog-best-time"></p>
+      </div>
+      <section class="dialog-section" id="highlight-section">
+        <h3>A few ideas for your visit</h3>
+        <ul class="dialog-highlights" id="dialog-highlights"></ul>
+      </section>
+      <p class="dialog-facts" id="dialog-local-tip" hidden></p>
+      <nav class="dialog-sources" id="dialog-sources" aria-label="Official destination information"></nav>
+    </div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      const chips = [...document.querySelectorAll(".filter-chip")];
+      const searchForm = document.getElementById("search-form");
+      const searchInput = document.getElementById("search-destination");
+      const grid = document.getElementById("destination-grid");
+      const emptyState = document.getElementById("empty-state");
+      const savedCount = document.getElementById("saved-count");
+      const tripList = document.getElementById("trip-list");
+      const addSavedToTrip = document.getElementById("add-saved-to-trip");
+      const shareItinerary = document.getElementById("share-itinerary");
+      const downloadCalendar = document.getElementById("download-calendar");
+      const calendarHint = document.getElementById("trip-calendar-hint");
+      const printItinerary = document.getElementById("print-itinerary");
+      const tripLengthSelect = document.getElementById("trip-length");
+      const tripStartDateInput = document.getElementById("trip-start-date");
+      const toast = document.getElementById("toast");
+      const savedKey = "elsewhere-saved-destinations";
+      const tripKey = "elsewhere-kerala-itinerary";
+      const tripLengthKey = "elsewhere-kerala-trip-length";
+      const tripStartDateKey = "elsewhere-kerala-trip-start-date";
+      const initialUrl = new URL(window.location.href);
+      const sharedTripValue = initialUrl.searchParams.get("trip");
+      let sharedTripHandled = !initialUrl.searchParams.has("trip");
+      let sharedTripUrlValue = sharedTripValue;
+      let saved;
+      try {
+        const stored = JSON.parse(localStorage.getItem(savedKey) || "[]");
+        saved = new Set(Array.isArray(stored) ? stored.filter((id) => typeof id === "string") : []);
+      } catch (error) {
+        console.error("Could not restore saved destinations from this browser:", error);
+        saved = new Set();
+      }
+      let tripPlan;
+      try {
+        const storedPlan = JSON.parse(localStorage.getItem(tripKey) || "[]");
+        tripPlan = Array.isArray(storedPlan)
+          ? storedPlan.filter((item, index, items) =>
+            item &&
+            typeof item.slug === "string" &&
+            Number.isInteger(item.day) &&
+            item.day >= 1 &&
+            item.day <= 14 &&
+            items.findIndex((candidate) => candidate && candidate.slug === item.slug) === index
+          )
+          : [];
+      } catch (error) {
+        console.error("Could not restore the itinerary from this browser:", error);
+        tripPlan = [];
+      }
+      let storedTripLength;
+      try {
+        storedTripLength = Number(localStorage.getItem(tripLengthKey));
+      } catch (error) {
+        console.error("Could not restore the trip length from this browser:", error);
+        storedTripLength = Number.NaN;
+      }
+      const tripLength = { value: Number.isInteger(storedTripLength) && storedTripLength >= 1 && storedTripLength <= 14
+        ? storedTripLength
+        : Math.max(3, ...tripPlan.map((item) => item.day)) };
+      let tripStartDate = "";
+      try {
+        const storedStartDate = localStorage.getItem(tripStartDateKey) || "";
+        if (isValidDateString(storedStartDate)) tripStartDate = storedStartDate;
+      } catch (error) {
+        console.error("Could not restore the trip start date from this browser:", error);
+      }
+      tripStartDateInput.value = tripStartDate;
+      tripPlan.forEach((item) => {
+        item.day = Math.min(item.day, tripLength.value);
+      });
+      for (let day = 1; day <= 14; day += 1) {
+        const option = document.createElement("option");
+        option.value = day;
+        option.textContent = `${day} ${day === 1 ? "day" : "days"}`;
+        option.selected = day === tripLength.value;
+        tripLengthSelect.append(option);
+      }
+      let activeFilter = "all";
+      let savedOnly = false;
+      let toastTimer;
+      let requestController;
+      const destinationCatalog = new Map();
+
+      function isValidDateString(value) {
+        if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+        const [year, month, day] = value.split("-").map(Number);
+        const date = new Date(Date.UTC(year, month - 1, day));
+        return date.getUTCFullYear() === year &&
+          date.getUTCMonth() === month - 1 &&
+          date.getUTCDate() === day;
+      }
+
+      function getTripDate(day) {
+        if (!tripStartDate) return "";
+        const [year, month, date] = tripStartDate.split("-").map(Number);
+        const tripDate = new Date(Date.UTC(year, month - 1, date + day - 1));
+        return new Intl.DateTimeFormat(undefined, {
+          weekday: "long",
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+          timeZone: "UTC",
+        }).format(tripDate);
+      }
+
+      function getTripDateValue(day) {
+        const [year, month, date] = tripStartDate.split("-").map(Number);
+        return new Date(Date.UTC(year, month - 1, date + day - 1)).toISOString().slice(0, 10);
+      }
+
+      function escapeCalendarText(value) {
+        return value
+          .replace(/\\/g, "\\\\")
+          .replace(/\r?\n/g, "\\n")
+          .replace(/,/g, "\\,")
+          .replace(/;/g, "\\;");
+      }
+
+      function foldCalendarLine(line) {
+        let folded = "";
+        let byteLength = 0;
+        for (const character of line) {
+          const codePoint = character.codePointAt(0);
+          const characterBytes = codePoint <= 0x7f ? 1 : codePoint <= 0x7ff ? 2 : codePoint <= 0xffff ? 3 : 4;
+          if (byteLength + characterBytes > 75) {
+            folded += "\r\n ";
+            byteLength = 1;
+          }
+          folded += character;
+          byteLength += characterBytes;
+        }
+        return folded;
+      }
+
+      function persistTripPlan() {
+        try {
+          localStorage.setItem(tripKey, JSON.stringify(tripPlan));
+          return true;
+        } catch (error) {
+          console.error("Could not save the itinerary in this browser:", error);
+          showToast("Your browser couldn't save the itinerary. Check its storage settings.");
+          return false;
+        }
+      }
+
+      function persistTripLength() {
+        try {
+          localStorage.setItem(tripLengthKey, String(tripLength.value));
+          return true;
+        } catch (error) {
+          console.error("Could not save the trip length in this browser:", error);
+          showToast("Your browser couldn't save the trip length. Check its storage settings.");
+          return false;
+        }
+      }
+
+      function persistTripStartDate() {
+        try {
+          if (tripStartDate) localStorage.setItem(tripStartDateKey, tripStartDate);
+          else localStorage.removeItem(tripStartDateKey);
+          return true;
+        } catch (error) {
+          console.error("Could not save the trip start date in this browser:", error);
+          showToast("Your browser couldn't save the trip start date. Check its storage settings.");
+          return false;
+        }
+      }
+
+      function renderTripPlan() {
+        addSavedToTrip.disabled = !saved.size;
+        shareItinerary.disabled = !tripPlan.length;
+        downloadCalendar.disabled = !tripPlan.length || !tripStartDate;
+        calendarHint.hidden = !tripPlan.length || Boolean(tripStartDate);
+        printItinerary.disabled = !tripPlan.length;
+        document.querySelector(".trip-print-note").textContent =
+          `A ${tripLength.value}-day personal travel outline. Confirm current transport, opening hours and local guidance before you travel.`;
+        tripList.replaceChildren();
+        const plannedPlaces = tripPlan
+          .map((item, index) => ({ ...item, index, place: destinationCatalog.get(item.slug) }))
+          .filter((item) => item.place)
+          .sort((left, right) => left.day - right.day || left.index - right.index);
+        if (tripPlan.length && !plannedPlaces.length) {
+          const empty = document.createElement("p");
+          empty.className = "trip-empty";
+          empty.textContent = "We couldn't find those destinations. Remove the old itinerary entries and add places again.";
+          tripList.append(empty);
+          return;
+        }
+        for (let day = 1; day <= tripLength.value; day += 1) {
+          const dayPlaces = plannedPlaces.filter((item) => item.day === day);
+          const group = document.createElement("section");
+          group.className = "trip-day";
+          const heading = document.createElement("h3");
+          const formattedDate = getTripDate(day);
+          heading.textContent = formattedDate ? `Day ${day} · ${formattedDate}` : `Day ${day}`;
+          group.append(heading);
+          if (!dayPlaces.length) {
+            const emptyDay = document.createElement("p");
+            emptyDay.className = "trip-day-empty";
+            emptyDay.textContent = "No stops planned yet";
+            group.append(emptyDay);
+          }
+          dayPlaces.forEach(({ place, index }, position) => {
+            const row = document.createElement("article");
+            row.className = "trip-item";
+            const name = document.createElement("div");
+            name.className = "trip-item-name";
+            const title = document.createElement("strong");
+            title.textContent = place.name;
+            const region = document.createElement("span");
+            region.textContent = `${place.region} · ${place.label}`;
+            const noteInput = document.createElement("textarea");
+            noteInput.className = "trip-note-input";
+            noteInput.rows = 2;
+            noteInput.maxLength = 500;
+            noteInput.placeholder = "Add a personal reminder for this stop";
+            noteInput.setAttribute("aria-label", `Personal notes for ${place.name}`);
+            noteInput.value = typeof tripPlan[index].note === "string" ? tripPlan[index].note : "";
+            const notePrint = document.createElement("p");
+            notePrint.className = "trip-note";
+            notePrint.hidden = !noteInput.value.trim();
+            notePrint.textContent = noteInput.value;
+            noteInput.addEventListener("change", () => {
+              tripPlan[index].note = noteInput.value;
+              notePrint.textContent = noteInput.value;
+              notePrint.hidden = !noteInput.value.trim();
+              persistTripPlan();
+            });
+            name.append(title, region, noteInput, notePrint);
+
+            const controls = document.createElement("div");
+            controls.className = "trip-item-controls";
+            const daySelect = document.createElement("select");
+            daySelect.className = "trip-day-select";
+            daySelect.setAttribute("aria-label", `Day for ${place.name}`);
+            for (let optionDay = 1; optionDay <= tripLength.value; optionDay += 1) {
+              const option = document.createElement("option");
+              option.value = optionDay;
+              option.textContent = `Day ${optionDay}`;
+              option.selected = optionDay === tripPlan[index].day;
+              daySelect.append(option);
+            }
+            daySelect.addEventListener("change", () => {
+              tripPlan[index].day = Number(daySelect.value);
+              persistTripPlan();
+              renderTripPlan();
+            });
+
+            const reorder = document.createElement("div");
+            reorder.className = "trip-reorder";
+            reorder.setAttribute("aria-label", `Reorder ${place.name} within Day ${day}`);
+            [
+              { direction: -1, label: `Move ${place.name} up`, icon: "↑", disabled: position === 0 },
+              { direction: 1, label: `Move ${place.name} down`, icon: "↓", disabled: position === dayPlaces.length - 1 },
+            ].forEach(({ direction, label, icon, disabled }) => {
+              const moveButton = document.createElement("button");
+              moveButton.type = "button";
+              moveButton.textContent = icon;
+              moveButton.setAttribute("aria-label", label);
+              moveButton.disabled = disabled;
+              moveButton.addEventListener("click", () => {
+                const sameDayIndices = tripPlan
+                  .map((item, itemIndex) => item.day === day ? itemIndex : -1)
+                  .filter((itemIndex) => itemIndex !== -1);
+                const positionInDay = sameDayIndices.indexOf(index);
+                const targetIndex = sameDayIndices[positionInDay + direction];
+                if (targetIndex === undefined) return;
+                [tripPlan[index], tripPlan[targetIndex]] = [tripPlan[targetIndex], tripPlan[index]];
+                persistTripPlan();
+                renderTripPlan();
+                const focusLabel = direction === 1 ? `Move ${place.name} up` : `Move ${place.name} down`;
+                tripList.querySelector(`[aria-label="${focusLabel}"]`)?.focus();
+              });
+              reorder.append(moveButton);
+            });
+
+            const remove = document.createElement("button");
+            remove.className = "trip-remove";
+            remove.type = "button";
+            remove.textContent = "Remove";
+            remove.setAttribute("aria-label", `Remove ${place.name} from itinerary`);
+            remove.addEventListener("click", () => {
+              tripPlan.splice(index, 1);
+              persistTripPlan();
+              renderTripPlan();
+              showToast(`${place.name} removed from your itinerary`);
+            });
+            controls.append(daySelect, reorder, remove);
+            row.append(name, controls);
+            group.append(row);
+          });
+          tripList.append(group);
+        }
+      }
+
+      function addToTrip(place) {
+        if (tripPlan.some((item) => item.slug === place.slug)) {
+          showToast(`${place.name} is already in your itinerary`);
+          return;
+        }
+        const scheduledDays = new Set(tripPlan.map((item) => item.day));
+        let day = 1;
+        while (day < tripLength.value && scheduledDays.has(day)) day += 1;
+        tripPlan.push({ slug: place.slug, day });
+        destinationCatalog.set(place.slug, place);
+        persistTripPlan();
+        renderTripPlan();
+        showToast(`${place.name} added to your itinerary`);
+        refreshDestinations();
+      }
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
+      }
+
+      function clearSharedTripFromUrl() {
+        const url = new URL(window.location.href);
+        url.searchParams.delete("trip");
+        window.history.replaceState(window.history.state, "", url);
+      }
+
+      function applySharedTrip() {
+        if (sharedTripHandled) return;
+        sharedTripHandled = true;
+        let sharedTrip;
+        try {
+          sharedTrip = JSON.parse(sharedTripUrlValue);
+        } catch (error) {
+          console.error("Could not read the shared itinerary link:", error);
+          showToast("This shared itinerary link is invalid.");
+          clearSharedTripFromUrl();
+          return;
+        }
+        const validShape = sharedTrip &&
+          sharedTrip.version === 1 &&
+          Number.isInteger(sharedTrip.days) &&
+          sharedTrip.days >= 1 &&
+          sharedTrip.days <= 14 &&
+          (sharedTrip.startDate === undefined || sharedTrip.startDate === null || isValidDateString(sharedTrip.startDate)) &&
+          Array.isArray(sharedTrip.stops) &&
+          sharedTrip.stops.length > 0 &&
+          sharedTrip.stops.every((stop, index, stops) =>
+            stop &&
+            typeof stop.slug === "string" &&
+            Number.isInteger(stop.day) &&
+            stop.day >= 1 &&
+            stop.day <= sharedTrip.days &&
+            stops.findIndex((candidate) => candidate && candidate.slug === stop.slug) === index
+          );
+        if (!validShape) {
+          showToast("This shared itinerary link is invalid.");
+          clearSharedTripFromUrl();
+          return;
+        }
+        if (sharedTrip.stops.some((stop) => !destinationCatalog.has(stop.slug))) {
+          showToast("This shared itinerary includes destinations that are unavailable.");
+          clearSharedTripFromUrl();
+          return;
+        }
+        if (!window.confirm("Load this shared itinerary? It will replace the itinerary saved in this browser; your saved places will stay unchanged.")) {
+          clearSharedTripFromUrl();
+          return;
+        }
+        tripPlan = sharedTrip.stops.map(({ slug, day }) => ({ slug, day }));
+        tripLength.value = sharedTrip.days;
+        tripLengthSelect.value = String(sharedTrip.days);
+        tripStartDate = sharedTrip.startDate || "";
+        tripStartDateInput.value = tripStartDate;
+        persistTripLength();
+        persistTripStartDate();
+        persistTripPlan();
+        renderTripPlan();
+        clearSharedTripFromUrl();
+        showToast("Shared itinerary loaded");
+      }
+
+      async function shareCurrentItinerary() {
+        const url = new URL(window.location.href);
+        url.searchParams.set("trip", JSON.stringify({
+          version: 1,
+          days: tripLength.value,
+          ...(tripStartDate ? { startDate: tripStartDate } : {}),
+          stops: tripPlan.map(({ slug, day }) => ({ slug, day })),
+        }));
+        url.hash = "trip-planner";
+        const shareData = {
+          title: "My Kerala itinerary",
+          text: "Here's my Kerala itinerary.",
+          url: url.toString(),
+        };
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            return;
+          } catch (error) {
+            if (error.name === "AbortError") return;
+            console.error("Could not share the itinerary:", error);
+            showToast("We couldn't share your itinerary. Please try again.");
+            return;
+          }
+        }
+        if (!navigator.clipboard || !navigator.clipboard.writeText) {
+          showToast("Sharing or clipboard access isn't available in this browser.");
+          return;
+        }
+        try {
+          await navigator.clipboard.writeText(shareData.url);
+          showToast("Itinerary link copied");
+        } catch (error) {
+          console.error("Could not copy the itinerary link:", error);
+          showToast("We couldn't copy the itinerary link. Check clipboard permissions.");
+        }
+      }
+
+      function downloadCalendarFile() {
+        if (!tripPlan.length || !tripStartDate) return;
+        if (tripPlan.some((item) => !destinationCatalog.has(item.slug))) {
+          showToast("We couldn't find every destination in this itinerary.");
+          return;
+        }
+        const timestamp = new Date().toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+        const lines = [
+          "BEGIN:VCALENDAR",
+          "VERSION:2.0",
+          "PRODID:-//Elsewhere//Kerala Itinerary//EN",
+          "CALSCALE:GREGORIAN",
+          "METHOD:PUBLISH",
+        ];
+        for (let day = 1; day <= tripLength.value; day += 1) {
+          const dayStops = tripPlan.filter((stop) => stop.day === day);
+          dayStops.forEach((stop, index) => {
+            const place = destinationCatalog.get(stop.slug);
+            const startDate = getTripDateValue(day);
+            const endDate = getTripDateValue(day + 1);
+            lines.push(
+              "BEGIN:VEVENT",
+              `UID:${stop.slug}-${startDate}@elsewhere.invalid`,
+              `DTSTAMP:${timestamp}`,
+              `DTSTART;VALUE=DATE:${startDate.replace(/-/g, "")}`,
+              `DTEND;VALUE=DATE:${endDate.replace(/-/g, "")}`,
+              `SUMMARY:${escapeCalendarText(`Day ${day}, stop ${index + 1}: ${place.name}`)}`,
+              `LOCATION:${escapeCalendarText(`${place.name}, ${place.region}, Kerala`)}`,
+              `DESCRIPTION:${escapeCalendarText(`Stop ${index + 1} of ${dayStops.length} on Day ${day}. Confirm current transport, opening hours and local access before travel.`)}`,
+              "END:VEVENT",
+            );
+          });
+        }
+        lines.push("END:VCALENDAR");
+        const calendar = `${lines.map(foldCalendarLine).join("\r\n")}\r\n`;
+        const fileUrl = URL.createObjectURL(new Blob([calendar], { type: "text/calendar;charset=utf-8" }));
+        const link = document.createElement("a");
+        link.href = fileUrl;
+        link.download = `kerala-itinerary-${tripStartDate}.ics`;
+        document.body.append(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(fileUrl), 1000);
+        showToast("Calendar file downloaded");
+      }
+
+      function renderCard(destination) {
+        const card = document.createElement("article");
+        card.className = "destination-card";
+        card.dataset.categories = destination.categories.join(" ");
+        const imageWrap = document.createElement("div");
+        imageWrap.className = "card-image-wrap";
+        if (destination.image) {
+          const image = document.createElement("img");
+          image.className = "card-image";
+          image.src = destination.image;
+          image.alt = destination.imageAlt;
+          image.loading = "lazy";
+          imageWrap.append(image);
+        } else {
+          const placeholder = document.createElement("div");
+          placeholder.className = "card-placeholder";
+          placeholder.setAttribute("role", "img");
+          placeholder.setAttribute("aria-label", `Photo coming soon for ${destination.name}`);
+          const placeholderLabel = document.createElement("span");
+          placeholderLabel.textContent = "Photo coming soon";
+          placeholder.append(placeholderLabel);
+          imageWrap.append(placeholder);
+        }
+
+        const tag = document.createElement("span");
+        tag.className = "card-tag";
+        tag.textContent = destination.tag;
+
+        const saveButton = document.createElement("button");
+        saveButton.className = `save-button${saved.has(destination.slug) ? " saved" : ""}`;
+        saveButton.type = "button";
+        saveButton.setAttribute("aria-label", `${saved.has(destination.slug) ? "Remove" : "Save"} ${destination.name}`);
+        saveButton.setAttribute("aria-pressed", String(saved.has(destination.slug)));
+        const heart = document.createElement("span");
+        heart.setAttribute("aria-hidden", "true");
+        heart.textContent = saved.has(destination.slug) ? "♥" : "♡";
+        heart.style.fontSize = "19px";
+        saveButton.append(heart);
+        saveButton.addEventListener("click", () => {
+          if (saved.has(destination.slug)) {
+            saved.delete(destination.slug);
+            showToast(`${destination.name} removed from your saved places`);
+          } else {
+            saved.add(destination.slug);
+            showToast(`${destination.name} saved on this device`);
+          }
+          try {
+            localStorage.setItem(savedKey, JSON.stringify([...saved]));
+          } catch (error) {
+            console.error("Could not save destinations in this browser:", error);
+            showToast("Your browser couldn't save this place. Check its storage settings.");
+          }
+          savedCount.textContent = saved.size;
+          destinationCatalog.set(destination.slug, destination);
+          renderTripPlan();
+          refreshDestinations();
+        });
+        imageWrap.append(tag, saveButton);
+
+        const info = document.createElement("div");
+        info.className = "card-info";
+        const titleLine = document.createElement("div");
+        titleLine.className = "card-location-line";
+        const title = document.createElement("h3");
+        title.className = "card-location";
+        title.textContent = destination.name;
+        const region = document.createElement("span");
+        region.className = "card-category";
+        region.textContent = destination.region;
+        titleLine.append(title, region);
+
+        const summary = document.createElement("p");
+        summary.className = "card-description";
+        summary.textContent = destination.summary;
+
+        const actions = document.createElement("div");
+        actions.className = "card-actions";
+        const category = document.createElement("span");
+        category.className = "card-category";
+        category.textContent = destination.label;
+        const details = document.createElement("button");
+        details.className = "explore-button";
+        details.type = "button";
+        details.textContent = "Explore place →";
+        details.addEventListener("click", () => openDestination(destination.slug));
+        const planButton = document.createElement("button");
+        planButton.className = "explore-button";
+        planButton.type = "button";
+        planButton.textContent = tripPlan.some((item) => item.slug === destination.slug) ? "Added to trip ✓" : "Add to trip +";
+        planButton.setAttribute("aria-pressed", String(tripPlan.some((item) => item.slug === destination.slug)));
+        planButton.addEventListener("click", () => addToTrip(destination));
+        const actionLinks = document.createElement("div");
+        actionLinks.className = "card-action-links";
+        actionLinks.append(planButton, details);
+        actions.append(category, actionLinks);
+        info.append(titleLine, summary, actions);
+        card.append(imageWrap, info);
+        return card;
+      }
+
+      async function refreshDestinations() {
+        if (requestController) requestController.abort();
+        const controller = new AbortController();
+        requestController = controller;
+        const params = new URLSearchParams();
+        const query = searchInput.value.trim();
+        if (query) params.set("q", query);
+        if (activeFilter !== "all") params.set("category", activeFilter);
+        emptyState.textContent = "Finding places…";
+        emptyState.style.display = "block";
+        grid.setAttribute("aria-busy", "true");
+        try {
+          const response = await fetch(`/api/destinations?${params}`, { signal: controller.signal });
+          if (!response.ok) throw new Error(`Destination service returned ${response.status}`);
+          const data = await response.json();
+          data.results.forEach((place) => destinationCatalog.set(place.slug, place));
+          const results = savedOnly ? data.results.filter((place) => saved.has(place.slug)) : data.results;
+          grid.querySelectorAll(".destination-card").forEach((card) => card.remove());
+          results.forEach((place) => grid.insertBefore(renderCard(place), emptyState));
+          emptyState.textContent = savedOnly
+            ? saved.size === 0
+              ? "You haven't saved any places yet. Tap a heart to keep a destination close."
+              : "No saved places match the current search."
+            : query || activeFilter !== "all"
+              ? "No places match that search. Try another place or experience."
+              : "No destinations are available right now.";
+          emptyState.style.display = results.length ? "none" : "block";
+          renderTripPlan();
+          applySharedTrip();
+        } catch (error) {
+          if (error.name === "AbortError") return;
+          console.error("Could not load destinations:", error);
+          grid.querySelectorAll(".destination-card").forEach((card) => card.remove());
+          emptyState.textContent = "We couldn't reach the destination guide. Check that the local server is running, then refresh.";
+          emptyState.style.display = "block";
+        } finally {
+          if (requestController === controller) grid.setAttribute("aria-busy", "false");
+        }
+      }
+
+      let searchTimer;
+      searchInput.addEventListener("input", () => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(refreshDestinations, 180);
+      });
+
+      chips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          activeFilter = chip.dataset.filter;
+          savedOnly = false;
+          chips.forEach((item) => {
+            const active = item === chip;
+            item.classList.toggle("active", active);
+            item.setAttribute("aria-pressed", String(active));
+          });
+          refreshDestinations();
+        });
+      });
+
+      searchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        refreshDestinations();
+        document.getElementById("destinations").scrollIntoView({ behavior: "smooth", block: "start" });
+        const query = searchInput.value.trim();
+        if (query) showToast(`Searching Kerala for “${query}”`);
+      });
+
+      async function openDestination(slug) {
+        try {
+          const response = await fetch(`/api/destinations/${encodeURIComponent(slug)}`);
+          if (!response.ok) throw new Error(`Destination service returned ${response.status}`);
+          const place = await response.json();
+          const image = document.getElementById("dialog-image");
+          image.src = place.image || "";
+          image.alt = place.imageAlt || "";
+          image.hidden = !place.image;
+          document.getElementById("dialog-tag").textContent = place.label;
+          document.getElementById("dialog-region").textContent = place.region;
+          document.getElementById("dialog-title").textContent = place.name;
+          document.getElementById("dialog-summary").textContent = place.description;
+          document.getElementById("dialog-best-time").textContent = place.bestTime;
+          const guideSections = document.getElementById("guide-sections");
+          guideSections.replaceChildren(...(place.guideSections || []).map((section) => {
+            const wrapper = document.createElement("section");
+            wrapper.className = "dialog-section";
+            const heading = document.createElement("h3");
+            heading.textContent = section.title;
+            wrapper.append(heading);
+            if (section.intro) {
+              const intro = document.createElement("p");
+              intro.textContent = section.intro;
+              wrapper.append(intro);
+            }
+            const items = document.createElement("div");
+            items.className = "dialog-item-grid";
+            section.items.forEach((text) => {
+              const item = document.createElement("div");
+              item.className = "dialog-item";
+              item.textContent = text;
+              items.append(item);
+            });
+            wrapper.append(items);
+            return wrapper;
+          }));
+          const highlights = document.getElementById("dialog-highlights");
+          highlights.replaceChildren(...place.highlights.map((text) => {
+            const item = document.createElement("li");
+            item.textContent = text;
+            return item;
+          }));
+          document.getElementById("highlight-section").hidden =
+            place.highlights.length === 0 || (place.guideSections || []).length > 0;
+          const localTip = document.getElementById("dialog-local-tip");
+          localTip.hidden = !place.localTip;
+          localTip.replaceChildren();
+          if (place.localTip) {
+            const label = document.createElement("strong");
+            label.textContent = "Local note";
+            const text = document.createElement("span");
+            text.textContent = ` ${place.localTip}`;
+            localTip.append(label, text);
+          }
+          const sources = document.getElementById("dialog-sources");
+          sources.replaceChildren(...(place.sources || []).map((source) => {
+            const link = document.createElement("a");
+            link.href = source.url;
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.textContent = `${source.label} ↗`;
+            return link;
+          }));
+          sources.hidden = !place.sources || place.sources.length === 0;
+          document.getElementById("place-dialog").showModal();
+        } catch (error) {
+          console.error("Could not load destination details:", error);
+          showToast("We couldn't load that place. Please try again.");
+        }
+      }
+
+      document.getElementById("saved-link").addEventListener("click", (event) => {
+        event.preventDefault();
+        savedOnly = !savedOnly;
+        activeFilter = "all";
+        chips.forEach((chip) => {
+          const active = chip.dataset.filter === "all";
+          chip.classList.toggle("active", active);
+          chip.setAttribute("aria-pressed", String(active));
+        });
+        refreshDestinations();
+        document.getElementById("destinations").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      addSavedToTrip.addEventListener("click", () => {
+        if (!saved.size) {
+          showToast("Save a place first to add it here");
+          return;
+        }
+        addSavedToTrip.disabled = true;
+        fetch("/api/destinations")
+          .then((response) => {
+            if (!response.ok) throw new Error(`Destination service returned ${response.status}`);
+            return response.json();
+          })
+          .then((data) => {
+            data.results.forEach((place) => destinationCatalog.set(place.slug, place));
+            const newPlaces = data.results.filter(
+              (place) => saved.has(place.slug) && !tripPlan.some((item) => item.slug === place.slug)
+            );
+            if (!newPlaces.length) {
+              showToast("All saved places are already in your itinerary");
+              return;
+            }
+            newPlaces.forEach((place) => {
+              const scheduledDays = new Set(tripPlan.map((item) => item.day));
+              let day = 1;
+              while (day < tripLength.value && scheduledDays.has(day)) day += 1;
+              tripPlan.push({ slug: place.slug, day });
+            });
+            persistTripPlan();
+            renderTripPlan();
+            refreshDestinations();
+            showToast(`${newPlaces.length} saved ${newPlaces.length === 1 ? "place" : "places"} added to your itinerary`);
+          })
+          .catch((error) => {
+            console.error("Could not add saved places to the itinerary:", error);
+            showToast("We couldn't load your saved places. Please try again.");
+          })
+          .finally(() => {
+            addSavedToTrip.disabled = !saved.size;
+          });
+      });
+
+      tripLengthSelect.addEventListener("change", () => {
+        tripLength.value = Number(tripLengthSelect.value);
+        tripPlan.forEach((item) => {
+          item.day = Math.min(item.day, tripLength.value);
+        });
+        persistTripLength();
+        persistTripPlan();
+        renderTripPlan();
+        showToast(`Trip length set to ${tripLength.value} ${tripLength.value === 1 ? "day" : "days"}`);
+      });
+
+      tripStartDateInput.addEventListener("change", () => {
+        tripStartDate = tripStartDateInput.value;
+        persistTripStartDate();
+        renderTripPlan();
+      });
+
+      printItinerary.addEventListener("click", () => {
+        if (tripPlan.length) window.print();
+      });
+
+      shareItinerary.addEventListener("click", shareCurrentItinerary);
+      downloadCalendar.addEventListener("click", downloadCalendarFile);
+
+      document.getElementById("view-all").addEventListener("click", () => {
+        activeFilter = "all";
+        savedOnly = false;
+        searchInput.value = "";
+        chips.forEach((chip) => {
+          const active = chip.dataset.filter === "all";
+          chip.classList.toggle("active", active);
+          chip.setAttribute("aria-pressed", String(active));
+        });
+        refreshDestinations();
+      });
+
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+
+      function closeMobileMenu(returnFocus = false) {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+        if (returnFocus) menuToggle.focus();
+      }
+
+      menuToggle.addEventListener("click", (event) => {
+        const button = event.currentTarget;
+        const isOpen = button.getAttribute("aria-expanded") === "true";
+        button.setAttribute("aria-expanded", String(!isOpen));
+        button.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
+        navLinks.classList.toggle("open", !isOpen);
+        if (!isOpen) navLinks.querySelector("a").focus();
+      });
+
+      navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          closeMobileMenu();
+          const target = document.getElementById(link.hash.slice(1));
+          if (target) target.focus({ preventScroll: true });
+        });
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        if (navLinks.classList.contains("open")) {
+          closeMobileMenu(true);
+        }
+      });
+
+      document.getElementById("dialog-close").addEventListener("click", () => {
+        document.getElementById("place-dialog").close();
+      });
+
+      document.getElementById("place-dialog").addEventListener("click", (event) => {
+        if (event.target === event.currentTarget) event.currentTarget.close();
+      });
+
+      savedCount.textContent = saved.size;
+      refreshDestinations();
+    })();
+  </script>
+</body>
+</html>
