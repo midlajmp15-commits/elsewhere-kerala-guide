@@ -1,3 +1,6 @@
+import base64
+import binascii
+import hmac
 import json
 import logging
 import mimetypes
@@ -76,14 +79,44 @@ def application(environ, start_response):
         start_response(f"{status} {HTTPStatus(status).phrase}", headers)
         return [body]
 
-    def respond_json(status, payload):
+    def respond_json(status, payload, extra_headers=()):
         body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
         return respond(
             status,
             body,
             "application/json; charset=utf-8",
-            [("Cache-Control", "no-store")],
+            [("Cache-Control", "no-store"), *extra_headers],
         )
+
+    if path != "/api/health" and os.environ.get("PREVIEW_AUTH_REQUIRED", "").casefold() in {
+        "1", "true", "yes",
+    }:
+        expected_username = os.environ.get("PREVIEW_USERNAME", "")
+        expected_password = os.environ.get("PREVIEW_PASSWORD", "")
+        if not expected_username or not expected_password:
+            logging.error("Preview authentication is required but its credentials are not configured.")
+            return respond_json(503, {"error": "Private preview authentication is not configured."})
+        authorization = environ.get("HTTP_AUTHORIZATION", "")
+        scheme, _, encoded_credentials = authorization.partition(" ")
+        try:
+            decoded = base64.b64decode(encoded_credentials, validate=True).decode("utf-8")
+            username, separator, password = decoded.partition(":")
+        except (binascii.Error, UnicodeDecodeError):
+            username, separator, password = "", "", ""
+        username_matches = hmac.compare_digest(username, expected_username)
+        password_matches = hmac.compare_digest(password, expected_password)
+        authenticated = (
+            scheme.casefold() == "basic"
+            and bool(separator)
+            and username_matches
+            and password_matches
+        )
+        if not authenticated:
+            return respond_json(
+                401,
+                {"error": "Authentication required."},
+                [("WWW-Authenticate", 'Basic realm="Elsewhere Private Preview", charset="UTF-8"')],
+            )
 
     if method != "GET":
         return respond_json(405, {"error": "Method not allowed."})

@@ -6,3 +6,10 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: waitress-serve --host=0.0.0.0 --port=$PORT server:application
     healthCheckPath: /api/health
+    envVars:
+      - key: PREVIEW_AUTH_REQUIRED
+        value: "true"
+      - key: PREVIEW_USERNAME
+        sync: false
+      - key: PREVIEW_PASSWORD
+        sync: false

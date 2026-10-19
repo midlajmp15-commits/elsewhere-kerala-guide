@@ -16,7 +16,7 @@ Do not open `index.html` directly as a file: the frontend needs the API server.
 
 ## Deploy to Render
 
-The included `render.yaml` configures a Render web service that installs Waitress, runs the Python WSGI application, and checks `/api/health`. To publish, put this project in a GitHub repository, create a Render Blueprint connected to that repository, review the detected service settings, and confirm deployment. The site is not public until you complete those account and deployment steps. The free web service may sleep when idle; itinerary and saved-place data remain in each visitor's browser.
+The included `render.yaml` configures a Render web service that installs Waitress, runs the Python WSGI application, checks `/api/health`, and requires HTTP Basic Authentication for the site and APIs. When creating the Render Blueprint, set the `PREVIEW_USERNAME` and `PREVIEW_PASSWORD` secret environment variables in Render; use a unique, strong password and never commit it. The app fails closed with HTTP 503 if authentication is required but the credentials are missing. The health-check endpoint is intentionally unauthenticated and reveals only whether the service is running. Render serves the site over HTTPS; do not expose the password-protected preview over plain HTTP. The preview URL is reachable from the internet but protected by the shared password, not by GitHub repository privacy. The free web service may sleep when idle; itinerary and saved-place data remain in each visitor's browser.
 
 ## API
 

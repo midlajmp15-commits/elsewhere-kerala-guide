@@ -1,7 +1,10 @@
+import base64
 import json
+import os
 import sys
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -39,7 +42,7 @@ class DestinationCatalogTests(unittest.TestCase):
     def test_unknown_search_returns_no_results(self):
         self.assertEqual(filter_destinations(self.destinations, "not-a-place"), [])
 
-    def request(self, path, query="", method="GET"):
+    def request(self, path, query="", method="GET", headers=None):
         response = {}
 
         def start_response(status, headers):
@@ -52,6 +55,7 @@ class DestinationCatalogTests(unittest.TestCase):
                     "REQUEST_METHOD": method,
                     "PATH_INFO": path,
                     "QUERY_STRING": query,
+                    **(headers or {}),
                 },
                 start_response,
             )
@@ -90,6 +94,64 @@ class DestinationCatalogTests(unittest.TestCase):
         self.assertEqual(status, 405)
         self.assertEqual(json.loads(body), {"error": "Method not allowed."})
         self.assertIn("application/json", headers["Content-Type"])
+
+    def test_private_preview_fails_closed_without_credentials(self):
+        with patch.dict(os.environ, {"PREVIEW_AUTH_REQUIRED": "true"}, clear=False):
+            os.environ.pop("PREVIEW_USERNAME", None)
+            os.environ.pop("PREVIEW_PASSWORD", None)
+            status, _, body = self.request("/")
+            health_status, _, health_body = self.request("/api/health")
+        self.assertEqual(status, 503)
+        self.assertEqual(
+            json.loads(body),
+            {"error": "Private preview authentication is not configured."},
+        )
+        self.assertEqual(health_status, 200)
+        self.assertEqual(json.loads(health_body), {"status": "ok"})
+
+    def test_private_preview_rejects_invalid_basic_credentials(self):
+        credential = base64.b64encode(b"preview:wrong").decode("ascii")
+        with patch.dict(
+            os.environ,
+            {
+                "PREVIEW_AUTH_REQUIRED": "true",
+                "PREVIEW_USERNAME": "preview",
+                "PREVIEW_PASSWORD": "a long test password",
+            },
+            clear=False,
+        ):
+            status, headers, body = self.request(
+                "/api/destinations",
+                headers={"HTTP_AUTHORIZATION": f"Basic {credential}"},
+            )
+        self.assertEqual(status, 401)
+        self.assertIn("Basic realm=", headers["WWW-Authenticate"])
+        self.assertEqual(json.loads(body), {"error": "Authentication required."})
+
+    def test_private_preview_allows_correct_basic_credentials(self):
+        credential = base64.b64encode(b"preview:a long test password").decode("ascii")
+        with patch.dict(
+            os.environ,
+            {
+                "PREVIEW_AUTH_REQUIRED": "true",
+                "PREVIEW_USERNAME": "preview",
+                "PREVIEW_PASSWORD": "a long test password",
+            },
+            clear=False,
+        ):
+            status, headers, body = self.request(
+                "/api/health",
+                headers={"HTTP_AUTHORIZATION": f"Basic {credential}"},
+            )
+            homepage_status, homepage_headers, homepage_body = self.request(
+                "/",
+                headers={"HTTP_AUTHORIZATION": f"Basic {credential}"},
+            )
+        self.assertEqual(status, 200)
+        self.assertEqual(headers["Cache-Control"], "no-store")
+        self.assertEqual(homepage_status, 200)
+        self.assertIn("text/html", homepage_headers["Content-Type"])
+        self.assertIn(b"Discover Kerala", homepage_body)
 
     def test_uploaded_destination_images_exist(self):
         for place in self.destinations:
