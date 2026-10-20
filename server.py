@@ -155,15 +155,27 @@ def application(environ, start_response):
             return respond_json(404, {"error": "Destination not found."})
         return respond_json(200, place)
 
+    not_found_file = ROOT / "404.html"
+    if path == "/404.html":
+        return respond(404, not_found_file.read_bytes(), "text/html; charset=utf-8")
+
     relative_path = "index.html" if path == "/" else path.lstrip("/")
     requested_file = (ROOT / relative_path).resolve()
     if (
         not requested_file.is_relative_to(ROOT)
-        or (relative_path != "index.html" and not relative_path.startswith("images/"))
-        or requested_file.suffix.lower() not in {".html", ".jpg", ".jpeg", ".png", ".webp"}
+        or (
+            relative_path not in {
+                "index.html", "culture.html", "about.html", "contact.html",
+                "navigation.css", "navigation.js",
+            }
+            and not relative_path.startswith("images/")
+        )
+        or requested_file.suffix.lower() not in {
+            ".html", ".css", ".js", ".jpg", ".jpeg", ".png", ".webp",
+        }
         or not requested_file.is_file()
     ):
-        return respond_json(404, {"error": "File not found."})
+        return respond(404, not_found_file.read_bytes(), "text/html; charset=utf-8")
     content = requested_file.read_bytes()
     content_type = mimetypes.guess_type(requested_file.name)[0] or "application/octet-stream"
     if content_type.startswith("text/"):

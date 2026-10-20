@@ -2,7 +2,7 @@
 
 elsewhere-kerala-guide showcases God's Own Country: lush tea hills, tranquil backwaters, sunlit beaches, rich spice-scented culture and vibrant heritage. Experience houseboat cruises, wildlife safaris, traditional arts, Ayurvedic wellness and warm local hospitality—sustainable travel that connects you to nature and community.
 
-This project has a small Python backend and a browser frontend. The server serves the site, reads the destination catalog, and provides a JSON API for searching/filtering places and loading their details.
+This project has a small Python backend and browser frontend. The server serves the destination home page, dedicated Culture, About and Contact pages, a branded not-found page for unknown site URLs, reads the destination catalog, and provides a JSON API for searching/filtering places and loading their details. All pages share responsive navigation and a mobile menu. The Contact page links directly to the published project email; it does not pretend to submit a server-side form.
 
 ## Run locally
 
@@ -26,13 +26,17 @@ The included `render.yaml` configures a Render web service that installs Waitres
 - `GET /api/destinations?category=coast` — filter by category.
 - `GET /api/destinations/munnar` — one destination's details.
 
-Edit `data/destinations.json` to update place descriptions and image paths. All nine destinations include detailed place and food guides, local tips and official reference links; `guideSections`, `localTip` and `sources` are optional fields when adding detail to another place. Varkala, Kovalam and Athirappilly use the built-in photo placeholder until appropriately licensed photos are added. Search also covers guide content. The supplied photos are connected as follows:
+Edit `data/destinations.json` to update place descriptions and image paths. All nine destinations include detailed place and food guides, local tips and official reference links; `guideSections`, `localTip` and `sources` are optional fields when adding detail to another place. Search also covers guide content. The Culture page covers performing arts, festivals, foodways and respectful visits, with links to official references. The supplied photos are connected as follows:
 
 - `images/kochin.jpg` — Fort Kochi
 - `images/munnar.jpg` — Munnar
 - `images/alappey.jpg` — Alappuzha
 - `images/wayanad.jpg` — Wayanad
 - `images/thekkady.jpg` — Thekkady
+- `images/varkala.jpg` — Varkala
+- `images/kovalam.jpg` — Kovalam
+- `images/athirappilly.jpeg` — Athirappilly
+- `images/kathakali.jpg`, `images/theyyam.jpg`, `images/onam.jpg` and `images/thrissurpooram.jpg` — Culture page
 
 `images/kozhikode.jpeg` — Kozhikode. Both `.jpg` and `.jpeg` extensions are supported.
 

@@ -332,8 +332,8 @@
         "url": "https://trivandrum.nic.in/en/tourism/"
       }
     ],
-    "image": "",
-    "imageAlt": "",
+    "image": "/images/varkala.jpg",
+    "imageAlt": "Waves break along the beach below Varkala's green cliffside",
     "searchTerms": ["varkala cliff", "varkala beach", "cliff", "arabian sea", "coast", "clifftop", "temple", "beach walk", "kerala food", "swimming safety"]
   },
   {
@@ -386,8 +386,8 @@
         "url": "https://www.keralatourism.org/destination/kovalam-beach/"
       }
     ],
-    "image": "",
-    "imageAlt": "",
+    "image": "/images/kovalam.jpg",
+    "imageAlt": "Kovalam's red-and-white lighthouse above a palm-lined rocky shore",
     "searchTerms": ["kovalam lighthouse", "kovalam beach", "lighthouse beach", "lighthouse", "coves", "beach", "arabian sea", "coast", "swimming safety", "kerala food", "thiruvananthapuram"]
   },
   {
@@ -440,8 +440,8 @@
         "url": "https://thrissur.nic.in/en/tourist-places/"
       }
     ],
-    "image": "",
-    "imageAlt": "",
+    "image": "/images/athirappilly.jpeg",
+    "imageAlt": "Athirappilly Falls cascade over a rocky ledge through forest",
     "searchTerms": ["athirappilly waterfalls", "athirappilly falls", "chalakudy river", "waterfall", "forest", "river", "thrissur", "nature", "wildlife", "water safety"]
   },
   {

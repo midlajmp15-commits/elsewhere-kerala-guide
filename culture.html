@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f7f3">
+  <meta name="description" content="Explore Kerala's living cultural traditions, performance arts, festivals and food with context and respect.">
+  <title>Culture — Elsewhere, Kerala</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/navigation.css">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17251e;
+      --muted: #68736b;
+      --green: #315c45;
+      --green-dark: #244734;
+      --paper: #f7f7f3;
+      --line: #e8e9e2;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", sans-serif;
+      --display: "Manrope", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 3px solid #98620b; outline-offset: 3px; }
+    .culture-hero { padding: clamp(64px, 10vw, 126px) 0 72px; }
+    .eyebrow, .kicker { margin: 0 0 16px; color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 1.7px; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 880px; margin-bottom: 22px; font: 600 clamp(44px, 8vw, 88px)/1.04 var(--display); letter-spacing: -5px; }
+    h1 em, h2 em { font-family: var(--serif); font-weight: 400; }
+    .hero-copy { max-width: 650px; margin-bottom: 0; color: #58645b; font-size: clamp(16px, 2vw, 19px); line-height: 1.8; }
+    .culture-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+    .culture-nav a { min-height: 44px; display: inline-flex; align-items: center; padding: 11px 16px; border: 1px solid #dfe5dc; border-radius: 999px; color: var(--green); font-size: 12px; font-weight: 700; }
+    .culture-nav a:hover { border-color: var(--green); background: #eef2ed; }
+    .culture-section { padding: 64px 0; border-top: 1px solid var(--line); scroll-margin-top: 30px; }
+    .section-heading { max-width: 730px; margin-bottom: 30px; }
+    h2 { margin-bottom: 14px; font: 600 clamp(30px, 4vw, 48px)/1.13 var(--display); letter-spacing: -2px; }
+    .section-intro, .culture-card p, .respect-list li { color: #58645b; font-size: 15px; line-height: 1.8; }
+    .culture-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .culture-card { min-width: 0; padding: clamp(22px, 4vw, 34px); border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .culture-card h3 { margin-bottom: 12px; font: 700 20px/1.3 var(--display); letter-spacing: -.6px; }
+    .culture-card p:last-child { margin-bottom: 0; }
+    .culture-image { display: block; width: 100%; aspect-ratio: 16 / 10; margin: 0 0 22px; border-radius: 9px; object-fit: cover; background: #e9ede7; }
+    .culture-image.onam { aspect-ratio: 16 / 10; object-fit: contain; }
+    .card-index { display: block; margin-bottom: 20px; color: #78897a; font: italic 19px var(--serif); }
+    .region-note { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 22px; padding: 26px; border-radius: 12px; background: #edf1eb; }
+    .region-note p { margin: 0; color: #4e5d52; font-size: 14px; line-height: 1.75; }
+    .respect-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 30px; padding-left: 21px; }
+    .sources { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 26px; }
+    .sources a { color: var(--green); font-size: 12px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .closing { padding: 28px; border-radius: 12px; background: #203b2b; color: #fff; }
+    .closing p { max-width: 740px; margin-bottom: 16px; color: rgba(255,255,255,.82); line-height: 1.8; }
+    .closing .sign-in { width: fit-content; background: #fff; color: var(--green-dark); }
+    .footer { margin-top: 30px; border-top: 1px solid var(--line); }
+    .footer-inner { min-height: 83px; display: flex; align-items: center; justify-content: space-between; gap: 18px; color: #858c86; font-size: 10px; }
+    .footer-inner .brand { color: var(--ink); font-size: 17px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 22px; }
+    .footer-links a:hover { color: var(--green); }
+    @media (max-width: 640px) {
+      h1 { letter-spacing: -3px; }
+      .culture-hero { padding: 62px 0 54px; }
+      .culture-section { padding: 48px 0; }
+      .culture-grid, .region-note, .respect-list { grid-template-columns: 1fr; }
+      .region-note { gap: 12px; }
+      .footer-inner { min-height: 100px; flex-wrap: wrap; justify-content: space-between; padding: 20px 0; }
+      .footer-inner > span { order: 3; width: 100%; }
+      .footer-links { gap: 13px; font-size: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="topbar">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="/" aria-label="Elsewhere home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 17.5 10.4 6l3.1 5.3 2.1-3.5L21 17.5H4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.1 17.5 3.4-6.1 3.6 6.1" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </span>
+        elsewhere
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="/#destinations">Discover</a>
+        <a href="/#trip-planner">Plan a trip</a>
+        <a href="/culture.html" aria-current="page">Culture</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="sign-in" href="/#destinations">Explore Kerala</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" class="shell" tabindex="-1">
+    <section class="culture-hero" aria-labelledby="culture-title">
+      <p class="eyebrow">People, place &amp; living traditions</p>
+      <h1 id="culture-title">Kerala's culture is lived, <em>not staged.</em></h1>
+      <p class="hero-copy">There is no single story that speaks for everyone in Kerala. Traditions change across regions, communities and generations. This is a starting point for learning with curiosity, and for meeting people on their own terms.</p>
+      <nav class="culture-nav" aria-label="Culture topics">
+        <a href="#performing-arts">Performing arts</a>
+        <a href="#festivals">Festivals</a>
+        <a href="#food">Foodways</a>
+        <a href="#respectful-visits">Be a thoughtful guest</a>
+      </nav>
+    </section>
+
+    <section class="culture-section" id="performing-arts" aria-labelledby="arts-title">
+      <div class="section-heading">
+        <p class="kicker">Stories in movement, music &amp; ritual</p>
+        <h2 id="arts-title">Performance has <em>many forms.</em></h2>
+        <p class="section-intro">Kerala's performance traditions are not interchangeable shows: each has its own history, artists, setting and relationship with the community.</p>
+      </div>
+      <div class="culture-grid">
+        <article class="culture-card">
+          <img class="culture-image" src="/images/kathakali.jpg" alt="Kathakali dancer in detailed costume and makeup performing with two dancers">
+          <span class="card-index">01 / Stage &amp; story</span>
+          <h3>Kathakali</h3>
+          <p>A highly stylised dance-drama combining gesture, music, movement and elaborate costume and make-up. Performances can draw on stories from Indian epics. If you attend, look for an established venue or troupe, check whether an introduction is offered, and let the performance speak for itself.</p>
+        </article>
+        <article class="culture-card">
+          <img class="culture-image" src="/images/theyyam.jpg" alt="Theyyam performer in an ornate circular headdress and ritual costume">
+          <span class="card-index">02 / Northern Kerala</span>
+          <h3>Theyyam</h3>
+          <p>A family of ritual performance traditions associated especially with parts of northern Kerala. Many performances take place in sacred community settings and are connected to local worship. Visitors should follow the hosts' guidance; attendance, photography and access are not automatically open to the public.</p>
+        </article>
+      </div>
+      <div class="region-note">
+        <p>These are just two entry points. Kerala has a wide range of classical, folk, ritual and contemporary arts, with practices and names that vary by place.</p>
+        <p>Dates and venues can change. Confirm with the organisers or venue before travelling, and do not treat a community ceremony as a guaranteed tourist attraction.</p>
+      </div>
+      <div class="sources" aria-label="Sources for performing arts">
+        <a href="https://www.keralatourism.org/artforms/" target="_blank" rel="noopener noreferrer">Kerala Tourism — performing art forms ↗</a>
+        <a href="https://www.keralatourism.org/artforms/theyyam/" target="_blank" rel="noopener noreferrer">Kerala Tourism — Theyyam ↗</a>
+      </div>
+    </section>
+
+    <section class="culture-section" id="festivals" aria-labelledby="festivals-title">
+      <div class="section-heading">
+        <p class="kicker">A calendar shaped by communities</p>
+        <h2 id="festivals-title">Festivals are more than <em>dates.</em></h2>
+        <p class="section-intro">Onam is widely celebrated in Kerala, but the way it is observed differs between families and communities. Local temple festivals and other religious observances have their own meanings, customs and access expectations.</p>
+      </div>
+      <div class="culture-grid">
+        <article class="culture-card">
+          <img class="culture-image onam" src="/images/onam.jpg" alt="Collage showing pookkalam, a festive meal, group dances and community celebrations associated with Onam">
+          <span class="card-index">Seasonal celebration</span>
+          <h3>Onam</h3>
+          <p>Homes and public spaces may mark the season with pookkalam (flower arrangements), shared meals, games and local events. What happens, and when, varies by place and year; look to local organisers for current details rather than assuming a set visitor programme.</p>
+        </article>
+        <article class="culture-card">
+          <span class="card-index">Local, not one-size-fits-all</span>
+          <h3>Temple &amp; community festivals</h3>
+          <p>Processions, music and performances may be part of local observances, but customs are specific to their setting. Check whether visitors are welcome, follow signs and host instructions, and give processions and worshippers space.</p>
+        </article>
+        <article class="culture-card">
+          <img class="culture-image" src="/images/thrissurpooram.jpg" alt="Thrissur Pooram procession with decorated elephants and parasols outside a temple">
+          <span class="card-index">Thrissur · Temple festival</span>
+          <h3>Thrissur Pooram</h3>
+          <p>A major festival celebrated in Thrissur, with processions and ceremonial displays. The event is crowded and rooted in local religious traditions; check current dates, visitor arrangements and local guidance before attending, and follow instructions at the site.</p>
+        </article>
+      </div>
+      <div class="sources" aria-label="Sources for festivals">
+        <a href="https://www.keralatourism.org/event/onam-festival/" target="_blank" rel="noopener noreferrer">Kerala Tourism — Onam festival ↗</a>
+      </div>
+    </section>
+
+    <section class="culture-section" id="food" aria-labelledby="food-title">
+      <div class="section-heading">
+        <p class="kicker">A table with many influences</p>
+        <h2 id="food-title">Taste the <em>regional differences.</em></h2>
+        <p class="section-intro">Kerala food is not one menu. Ingredients, preparation and everyday dishes vary across the coast and highlands, between districts, and among the state's many communities.</p>
+      </div>
+      <div class="culture-grid">
+        <article class="culture-card">
+          <span class="card-index">Rice, coconut &amp; more</span>
+          <h3>Ask what is local</h3>
+          <p>Meals may include rice, coconut, spices, vegetables, fish or meat, but combinations and recipes are local. Appam, puttu, fish curry and sadya are familiar examples, not a complete picture of what people eat.</p>
+        </article>
+        <article class="culture-card">
+          <span class="card-index">Every kitchen is different</span>
+          <h3>Eat with curiosity</h3>
+          <p>Ask what is seasonal and how a dish is prepared. If you have allergies or dietary needs, speak directly with the restaurant about ingredients and cross-contact; don't assume a dish is suitable from its name alone.</p>
+        </article>
+      </div>
+      <div class="sources" aria-label="Sources for Kerala food">
+        <a href="https://www.keralatourism.org/kerala-food/" target="_blank" rel="noopener noreferrer">Kerala Tourism — Kerala food ↗</a>
+        <a href="https://kozhikode.nic.in/en/tourism/" target="_blank" rel="noopener noreferrer">Kozhikode District — tourism information ↗</a>
+      </div>
+    </section>
+
+    <section class="culture-section" id="respectful-visits" aria-labelledby="visits-title">
+      <div class="section-heading">
+        <p class="kicker">Travel with care</p>
+        <h2 id="visits-title">Be a <em>thoughtful guest.</em></h2>
+        <p class="section-intro">A few small choices can make visits more considerate. When unsure, ask the people who host a place or event and accept their answer.</p>
+      </div>
+      <ul class="respect-list">
+        <li>Ask before photographing people, religious spaces, ceremonies or performances; respect a no-photo rule.</li>
+        <li>Check dress and visitor guidance for places of worship, and follow local instructions about where visitors may go.</li>
+        <li>Arrive as an observer, not an entitled audience. Some traditions are sacred or community-only, not performances for visitors.</li>
+        <li>Support local artists and businesses fairly, and ask before entering private, working or restricted areas.</li>
+      </ul>
+      <div class="closing">
+        <p>Culture and travel plans belong together. Browse the destination guides for place-specific context, then confirm current access and event information with local organisers.</p>
+        <a class="sign-in" href="/#destinations">Explore destination guides</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner shell">
+      <a class="brand" href="/" aria-label="Elsewhere home">
+        <span class="brand-mark" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 17.5 10.4 6l3.1 5.3 2.1-3.5L21 17.5H4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span> elsewhere
+      </a>
+      <span>A small, growing guide to Kerala.</span>
+      <div class="footer-links"><a href="/#destinations">Explore places</a><a href="/#trip-planner">Plan a trip</a><a href="/about.html">About</a><a href="/contact.html">Contact</a></div>
+    </div>
+  </footer>
+  <script src="/navigation.js"></script>
+</body>
+</html>

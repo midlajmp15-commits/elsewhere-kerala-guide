@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f7f3">
+  <meta name="description" content="Meet Elsewhere: a Kerala travel-guide and itinerary project built as part of a BCA student's web-development journey.">
+  <title>About — Elsewhere, Kerala</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/navigation.css">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17251e;
+      --green: #315c45;
+      --green-dark: #244734;
+      --paper: #f7f7f3;
+      --line: #e8e9e2;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "DM Sans", sans-serif;
+      --display: "Manrope", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 3px solid #98620b; outline-offset: 3px; }
+    h1, h2, h3, p { margin-top: 0; }
+    .about-hero { padding: clamp(66px, 10vw, 126px) 0 82px; }
+    .eyebrow, .kicker { margin: 0 0 16px; color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 1.7px; text-transform: uppercase; }
+    h1 { max-width: 850px; margin-bottom: 22px; font: 600 clamp(44px, 8vw, 86px)/1.04 var(--display); letter-spacing: -5px; }
+    h1 em, h2 em { font-family: var(--serif); font-weight: 400; }
+    .hero-copy { max-width: 680px; margin-bottom: 0; color: #58645b; font-size: clamp(16px, 2vw, 19px); line-height: 1.8; }
+    .about-section { padding: 62px 0; border-top: 1px solid var(--line); }
+    .section-heading { max-width: 720px; margin-bottom: 30px; }
+    h2 { margin-bottom: 14px; font: 600 clamp(30px, 4vw, 48px)/1.13 var(--display); letter-spacing: -2px; }
+    .section-intro, .about-card p, .project-note p { color: #58645b; font-size: 15px; line-height: 1.8; }
+    .about-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .about-card { min-width: 0; padding: clamp(22px, 4vw, 34px); border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .about-card h3 { margin-bottom: 12px; font: 700 20px/1.3 var(--display); letter-spacing: -.6px; }
+    .about-card p:last-child { margin-bottom: 0; }
+    .card-index { display: block; margin-bottom: 20px; color: #78897a; font: italic 19px var(--serif); }
+    .stack-list { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .stack-list span { padding: 9px 12px; border: 1px solid #dfe5dc; border-radius: 99px; color: var(--green); font-size: 11px; font-weight: 700; }
+    .project-note { padding: 26px; border-radius: 12px; background: #edf1eb; }
+    .project-note p { margin: 0; }
+    .project-note p + p { margin-top: 12px; }
+    .closing { padding: 28px; border-radius: 12px; background: #203b2b; color: #fff; }
+    .closing p { max-width: 740px; margin-bottom: 16px; color: rgba(255,255,255,.82); line-height: 1.8; }
+    .closing .sign-in { width: fit-content; background: #fff; color: var(--green-dark); }
+    .footer { margin-top: 30px; border-top: 1px solid var(--line); }
+    .footer-inner { min-height: 83px; display: flex; align-items: center; justify-content: space-between; gap: 18px; color: #858c86; font-size: 10px; }
+    .footer-inner .brand { color: var(--ink); font-size: 17px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 22px; }
+    .footer-links a:hover { color: var(--green); }
+    @media (max-width: 640px) {
+      h1 { letter-spacing: -3px; }
+      .about-hero { padding: 62px 0 54px; }
+      .about-section { padding: 48px 0; }
+      .about-grid { grid-template-columns: 1fr; }
+      .footer-inner { min-height: 100px; flex-wrap: wrap; justify-content: space-between; padding: 20px 0; }
+      .footer-inner > span { order: 3; width: 100%; }
+      .footer-links { gap: 13px; font-size: 9px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="topbar">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="brand" href="/" aria-label="Elsewhere home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 17.5 10.4 6l3.1 5.3 2.1-3.5L21 17.5H4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m8.1 17.5 3.4-6.1 3.6 6.1" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </span>
+        elsewhere
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="/#destinations">Discover</a>
+        <a href="/#trip-planner">Plan a trip</a>
+        <a href="/culture.html">Culture</a>
+        <a href="/about.html" aria-current="page">About</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="sign-in" href="/#destinations">Explore Kerala</a>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" class="shell" tabindex="-1">
+    <section class="about-hero" aria-labelledby="about-title">
+      <p class="eyebrow">A learning project with a sense of place</p>
+      <h1 id="about-title">A little more room to find <em>your Kerala.</em></h1>
+      <p class="hero-copy">Elsewhere is a growing travel-guide project built to make exploring Kerala feel thoughtful and personal: discover a place, learn a little about it, and shape a trip at your own pace.</p>
+    </section>
+
+    <section class="about-section" aria-labelledby="story-title">
+      <div class="section-heading">
+        <p class="kicker">Why Elsewhere exists</p>
+        <h2 id="story-title">Built around <em>curiosity.</em></h2>
+        <p class="section-intro">The idea is simple: good travel planning starts with inspiration, but it should leave space for local context and real-world conditions. Elsewhere brings destination discovery, cultural notes and a practical itinerary into one small guide.</p>
+      </div>
+      <div class="about-grid">
+        <article class="about-card">
+          <span class="card-index">01 / The guide</span>
+          <h3>Useful before you go</h3>
+          <p>Explore nine destination guides with highlights, food ideas, local tips and references. The Culture page offers a respectful introduction to selected traditions, while reminding visitors to confirm current access and event details with local organisers.</p>
+        </article>
+        <article class="about-card">
+          <span class="card-index">02 / The planner</span>
+          <h3>Your trip, your pace</h3>
+          <p>Save places and organise them into a day-by-day plan. The planner supports notes, trip dates, sharing and calendar export; saved places and the itinerary stay in this browser unless you choose to share a link.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="build-title">
+      <div class="section-heading">
+        <p class="kicker">Learning by building</p>
+        <h2 id="build-title">A BCA project, from idea to <em>working site.</em></h2>
+        <p class="section-intro">Built as a BCA learning project, Elsewhere is an opportunity to practise the full path from interface design to server behaviour—then test and improve it as real features are added.</p>
+      </div>
+      <div class="about-grid">
+        <article class="about-card">
+          <span class="card-index">Frontend</span>
+          <h3>Accessible, responsive pages</h3>
+          <p>HTML, CSS and JavaScript power the destination browser, interactive itinerary, Culture, About and Contact pages. The project focuses on clear navigation, keyboard access, mobile layouts and keeping user data local by default.</p>
+        </article>
+        <article class="about-card">
+          <span class="card-index">Backend</span>
+          <h3>A small Python web service</h3>
+          <p>A Python WSGI server serves the pages and destination images, and provides JSON endpoints for searching destinations and loading guide details. Automated tests cover routes, authentication behaviour, the catalog and static files.</p>
+        </article>
+      </div>
+      <div class="stack-list" aria-label="Technologies used">
+        <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>WSGI</span><span>Unittest</span>
+      </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="scope-title">
+      <div class="section-heading">
+        <p class="kicker">A work in progress</p>
+        <h2 id="scope-title">Honest about <em>what it is.</em></h2>
+      </div>
+      <div class="project-note">
+        <p>Elsewhere is an independent learning project, not an official tourism authority or booking service. Travel details can change; check current conditions, opening information and local guidance before you go.</p>
+        <p>It is still growing. Accounts, cloud-synced itineraries, bookings and a server-side contact form are not part of the current site.</p>
+      </div>
+    </section>
+
+    <section class="about-section" aria-label="Explore more">
+      <div class="closing">
+        <p>Have a question, correction or idea for the project? I’d be glad to hear from you.</p>
+        <a class="sign-in" href="/contact.html">Get in touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner shell">
+      <a class="brand" href="/" aria-label="Elsewhere home">
+        <span class="brand-mark" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 17.5 10.4 6l3.1 5.3 2.1-3.5L21 17.5H4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span> elsewhere
+      </a>
+      <span>A small, growing guide to Kerala.</span>
+      <div class="footer-links"><a href="/#destinations">Explore places</a><a href="/culture.html">Culture</a><a href="/contact.html">Contact</a></div>
+    </div>
+  </footer>
+  <script src="/navigation.js"></script>
+</body>
+</html>

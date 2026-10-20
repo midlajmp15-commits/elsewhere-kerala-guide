@@ -89,8 +89,61 @@ class DestinationCatalogTests(unittest.TestCase):
         self.assertEqual(status, 200)
         self.assertIn("text/html", headers["Content-Type"])
         self.assertIn(b"Discover Kerala", body)
+        culture_status, culture_headers, culture_body = self.request("/culture.html")
+        self.assertEqual(culture_status, 200)
+        self.assertIn("text/html", culture_headers["Content-Type"])
+        self.assertIn(b"Kerala's culture is lived", culture_body)
+        self.assertIn(b'href="/navigation.css"', culture_body)
+        self.assertIn(b'href="/#trip-planner"', culture_body)
+        for path in ("/unknown-page", "/images/missing.jpg", "/404.html", "/%2e%2e/server.py"):
+            with self.subTest(path=path):
+                not_found_status, not_found_headers, not_found_body = self.request(path)
+                self.assertEqual(not_found_status, 404)
+                self.assertIn("text/html", not_found_headers["Content-Type"])
+                self.assertIn(b"Page not found", not_found_body)
+                self.assertIn(b'href="/#destinations"', not_found_body)
+        about_status, about_headers, about_body = self.request("/about.html")
+        self.assertEqual(about_status, 200)
+        self.assertIn("text/html", about_headers["Content-Type"])
+        self.assertIn(b"Built as a BCA learning project", about_body)
+        contact_status, contact_headers, contact_body = self.request("/contact.html")
+        self.assertEqual(contact_status, 200)
+        self.assertIn("text/html", contact_headers["Content-Type"])
+        self.assertIn(b"mailto:miduxx18@gmail.com", contact_body)
+        self.assertIn(b"miduxx18@gmail.com", contact_body)
+        self.assertEqual(self.request("/server.py")[0], 404)
         self.assertEqual(self.request("/README.md")[0], 404)
-        self.assertEqual(self.request("/%2e%2e/README.md")[0], 404)
+        api_status, api_headers, api_body = self.request("/api/destinations/not-a-place")
+        self.assertEqual(api_status, 404)
+        self.assertIn("application/json", api_headers["Content-Type"])
+        self.assertEqual(json.loads(api_body), {"error": "Destination not found."})
+
+    def test_shared_navigation_assets_are_served(self):
+        css_status, css_headers, css_body = self.request("/navigation.css")
+        js_status, js_headers, js_body = self.request("/navigation.js")
+        self.assertEqual(css_status, 200)
+        self.assertIn("text/css", css_headers["Content-Type"])
+        self.assertIn(b".nav-links", css_body)
+        self.assertEqual(js_status, 200)
+        self.assertIn("javascript", js_headers["Content-Type"])
+        self.assertIn(b"aria-expanded", js_body)
+
+    def test_culture_images_are_served_and_described(self):
+        status, _, body = self.request("/culture.html")
+        self.assertEqual(status, 200)
+        for filename, alt_text in (
+            ("kathakali.jpg", "Kathakali dancer"),
+            ("theyyam.jpg", "Theyyam performer"),
+            ("onam.jpg", "associated with Onam"),
+            ("thrissurpooram.jpg", "Thrissur Pooram procession"),
+        ):
+            with self.subTest(image=filename):
+                image_status, image_headers, image_body = self.request(f"/images/{filename}")
+                self.assertEqual(image_status, 200)
+                self.assertTrue(image_headers["Content-Type"].startswith("image/jpeg"))
+                self.assertGreater(len(image_body), 0)
+                self.assertIn(f'src="/images/{filename}"'.encode(), body)
+                self.assertIn(alt_text.encode(), body)
 
     def test_wsgi_rejects_non_get_requests(self):
         status, headers, body = self.request("/api/health", method="POST")
@@ -103,10 +156,28 @@ class DestinationCatalogTests(unittest.TestCase):
             os.environ.pop("PREVIEW_USERNAME", None)
             os.environ.pop("PREVIEW_PASSWORD", None)
             status, _, body = self.request("/")
+            culture_status, _, culture_body = self.request("/culture.html")
+            about_status, _, about_body = self.request("/about.html")
+            contact_status, _, contact_body = self.request("/contact.html")
             health_status, _, health_body = self.request("/api/health")
         self.assertEqual(status, 503)
         self.assertEqual(
             json.loads(body),
+            {"error": "Private preview authentication is not configured."},
+        )
+        self.assertEqual(culture_status, 503)
+        self.assertEqual(
+            json.loads(culture_body),
+            {"error": "Private preview authentication is not configured."},
+        )
+        self.assertEqual(about_status, 503)
+        self.assertEqual(
+            json.loads(about_body),
+            {"error": "Private preview authentication is not configured."},
+        )
+        self.assertEqual(contact_status, 503)
+        self.assertEqual(
+            json.loads(contact_body),
             {"error": "Private preview authentication is not configured."},
         )
         self.assertEqual(health_status, 200)
@@ -150,11 +221,32 @@ class DestinationCatalogTests(unittest.TestCase):
                 "/",
                 headers={"HTTP_AUTHORIZATION": f"Basic {credential}"},
             )
+            culture_status, culture_headers, culture_body = self.request(
+                "/culture.html",
+                headers={"HTTP_AUTHORIZATION": f"Basic {credential}"},
+            )
+            about_status, about_headers, about_body = self.request(
+                "/about.html",
+                headers={"HTTP_AUTHORIZATION": f"Basic {credential}"},
+            )
+            contact_status, contact_headers, contact_body = self.request(
+                "/contact.html",
+                headers={"HTTP_AUTHORIZATION": f"Basic {credential}"},
+            )
         self.assertEqual(status, 200)
         self.assertEqual(headers["Cache-Control"], "no-store")
         self.assertEqual(homepage_status, 200)
         self.assertIn("text/html", homepage_headers["Content-Type"])
         self.assertIn(b"Discover Kerala", homepage_body)
+        self.assertEqual(culture_status, 200)
+        self.assertIn("text/html", culture_headers["Content-Type"])
+        self.assertIn(b"Kerala's culture is lived", culture_body)
+        self.assertEqual(about_status, 200)
+        self.assertIn("text/html", about_headers["Content-Type"])
+        self.assertIn(b"Built as a BCA learning project", about_body)
+        self.assertEqual(contact_status, 200)
+        self.assertIn("text/html", contact_headers["Content-Type"])
+        self.assertIn(b"mailto:miduxx18@gmail.com", contact_body)
 
     def test_uploaded_destination_images_exist(self):
         for place in self.destinations:
@@ -291,7 +383,8 @@ class DestinationCatalogTests(unittest.TestCase):
         self.assertIn("appam", guide_text)
         self.assertTrue(varkala["sources"])
         self.assertTrue(all(source["url"].startswith("https://") for source in varkala["sources"]))
-        self.assertEqual(varkala["image"], "")
+        self.assertEqual(varkala["image"], "/images/varkala.jpg")
+        self.assertEqual(varkala["imageAlt"], "Waves break along the beach below Varkala's green cliffside")
 
     def test_search_matches_varkala_destination(self):
         results = filter_destinations(self.destinations, "varkala cliff")
@@ -309,7 +402,8 @@ class DestinationCatalogTests(unittest.TestCase):
         self.assertIn("appam", guide_text)
         self.assertTrue(kovalam["sources"])
         self.assertTrue(all(source["url"].startswith("https://") for source in kovalam["sources"]))
-        self.assertEqual(kovalam["image"], "")
+        self.assertEqual(kovalam["image"], "/images/kovalam.jpg")
+        self.assertEqual(kovalam["imageAlt"], "Kovalam's red-and-white lighthouse above a palm-lined rocky shore")
 
     def test_search_matches_kovalam_destination(self):
         results = filter_destinations(self.destinations, "kovalam lighthouse")
@@ -327,7 +421,8 @@ class DestinationCatalogTests(unittest.TestCase):
         self.assertIn("thrissur district", athirappilly["description"].casefold())
         self.assertTrue(athirappilly["sources"])
         self.assertTrue(all(source["url"].startswith("https://") for source in athirappilly["sources"]))
-        self.assertEqual(athirappilly["image"], "")
+        self.assertEqual(athirappilly["image"], "/images/athirappilly.jpeg")
+        self.assertEqual(athirappilly["imageAlt"], "Athirappilly Falls cascade over a rocky ledge through forest")
 
     def test_search_matches_athirappilly_destination(self):
         results = filter_destinations(self.destinations, "athirappilly waterfalls")
