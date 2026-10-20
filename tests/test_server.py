@@ -183,6 +183,13 @@ class DestinationCatalogTests(unittest.TestCase):
         self.assertEqual(health_status, 200)
         self.assertEqual(json.loads(health_body), {"status": "ok"})
 
+    def test_public_site_does_not_require_preview_credentials(self):
+        with patch.dict(os.environ, {"PREVIEW_AUTH_REQUIRED": "false"}, clear=False):
+            status, headers, body = self.request("/")
+        self.assertEqual(status, 200)
+        self.assertIn("text/html", headers["Content-Type"])
+        self.assertIn(b"Discover Kerala", body)
+
     def test_private_preview_rejects_invalid_basic_credentials(self):
         credential = base64.b64encode(b"preview:wrong").decode("ascii")
         with patch.dict(

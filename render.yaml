@@ -8,8 +8,4 @@ services:
     healthCheckPath: /api/health
     envVars:
       - key: PREVIEW_AUTH_REQUIRED
-        value: "true"
-      - key: PREVIEW_USERNAME
-        sync: false
-      - key: PREVIEW_PASSWORD
-        sync: false
+        value: "false"
